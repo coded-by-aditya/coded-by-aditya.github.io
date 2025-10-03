@@ -172,25 +172,34 @@
             <h3 class="text-lg sm:text-xl font-bold">BirdTag - Serverless Media Tagging</h3>
             <span class="badge whitespace-nowrap">Case Study</span>
           </div>
+
           <p class="text-sm sm:text-base leading-relaxed mb-4" style="color: var(--text-muted)">
-            A lightweight, production-style flow for tagging media with AI:
-            <strong>API Gateway</strong> → <strong>Lambda</strong> (detect/route) → <strong>DynamoDB</strong> metadata with pre-signed <strong>S3</strong> links.
+            Full-stack serverless system for storing and tagging bird media (images, video, audio) with AI.
+            Backend runs on <strong>API Gateway → Lambda → DynamoDB</strong> with <strong>S3</strong> storage and <strong>SNS</strong> email alerts; frontend is React with Cognito auth.
           </p>
+
           <ul class="text-sm sm:text-base leading-relaxed mb-4 list-disc pl-5" style="color: var(--text-muted)">
-            <li>Sample endpoints: <code>/search-by-species</code>, <code>/get-original-url</code>, <code>/modify-tags</code></li>
-            <li>Clear DynamoDB schema + notes on GSIs, auth, and CI next steps</li>
-            <li>README with diagrams and “how to extend” guidance</li>
+            <li><strong>AI-powered detection:</strong> YOLOv8 (images/video) + BirdNET (audio)</li>
+            <li><strong>Endpoints:</strong> <code>/search-by-species</code>, <code>/get-original-url</code>, <code>/modify-tags</code>, <code>/get-media-matches-by-upload</code></li>
+            <li><strong>Data model:</strong> DynamoDB <code>BirdMediaMetadata</code> with <code>file_id</code>, <code>file_type</code>, <code>original_url</code>, <code>thumbnail_url</code>, <code>tags</code> map (species → count)</li>
+            <li><strong>Storage layout:</strong> S3 folders for <code>/images</code>, <code>/videos</code>, <code>/audios</code>, <code>/thumbnails</code>, <code>/models</code>, etc.</li>
           </ul>
+
           <div class="mb-4 flex flex-wrap gap-2">
             <span class="chip">Lambda</span>
             <span class="chip">API Gateway</span>
             <span class="chip">DynamoDB</span>
             <span class="chip">S3</span>
+            <span class="chip">SNS</span>
+            <span class="chip">Cognito</span>
             <span class="chip">Python</span>
+            <span class="chip">YOLOv8</span>
+            <span class="chip">BirdNET</span>
           </div>
+
           <a class="inline-block rounded-xl bg-accent px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base text-white font-medium hover:opacity-90 transition"
-             target="_blank" rel="noopener"
-             href="https://github.com/coded-by-aditya/birdtag-aws">View Case Study</a>
+            target="_blank" rel="noopener"
+            href="https://github.com/coded-by-aditya/birdtag-aws">GitHub</a>
         </article>
       </div>
     </section>
