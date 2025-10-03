@@ -87,6 +87,10 @@
     .theme-toggle-icon.moon { right: 6px; opacity: 0.4; }
     html.dark .theme-toggle-icon.sun { opacity: 0.4; }
     html.dark .theme-toggle-icon.moon { opacity: 1; }
+
+    .auto-rows-fr {
+      grid-auto-rows: 1fr;
+    }
   </style>
 </head>
 <body>
@@ -165,7 +169,7 @@
         <a href="#contact" class="text-sm sm:text-base text-accent hover:underline">Contact →</a>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 auto-rows-fr">
         <!-- BirdTag -->
         <article class="rounded-3xl card p-5 sm:p-6 shadow-sm hover:shadow-md transition">
           <div class="flex items-start justify-between gap-4 mb-3">
@@ -186,7 +190,7 @@
           </ul>
 
           <p class="text-xs sm:text-sm leading-relaxed mb-4" style="color: var(--text-muted)">
-            <strong>My role:</strong> Built the API & query layer—designed search, update, and delete endpoints behind Amazon API Gateway (Lambda + DynamoDB). Co-designed the AWS serverless architecture and contributed UI components on the React frontend.
+            <strong>My role:</strong> Built the API & query layer-designed search, update, and delete endpoints behind Amazon API Gateway (Lambda + DynamoDB). Co-designed the AWS serverless architecture and contributed UI components on the React frontend.
           </p>
 
           <div class="mb-4 flex flex-wrap gap-2">
