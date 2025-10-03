@@ -4,7 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aditya Mehrotra | Cloud & Backend Engineer</title>
-  <meta name="description" content="Aditya Mehrotra — Cloud & Backend (AWS Serverless, Python, CI/CD). Monash M.IT ’26. Open to part‑time internships.">
+  <meta name="description" content="Aditya Mehrotra - Cloud & Backend (AWS Serverless, Python, CI/CD). Monash M.IT ’26. Open to part‑time internships.">
+  <script>
+    (function() {
+      try {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if ((stored === 'dark') || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
   <meta property="og:title" content="Aditya Mehrotra | Cloud & Backend Engineer">
   <meta property="og:description" content="Cloud & Backend (AWS Serverless, Python, CI/CD). Monash M.IT ’26. Open to part‑time internships.">
   <meta property="og:type" content="website">
@@ -19,20 +32,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* ColorHunt palette: EEE3CB (bg) · D7C0AE (muted) · 967E76 (accent) · 3D3C42 (dark) */
-    :root { --bg:#EEE3CB; --muted:#D7C0AE; --accent:#967E76; --dark:#3D3C42; }
+    /* Refined palette with dark mode */
+    :root { --bg:#F7F7F8; --muted:#E7E8EA; --accent:#5B8DEF; --dark:#1F2328; --card:#FFFFFF; --border:rgba(31,35,40,0.12); }
+    html.dark { --bg:#0B0F14; --muted:#0F1620; --accent:#7DB2FF; --dark:#E6EDF3; --card:#0F1620; --border:rgba(230,237,243,0.15); }
     html { scroll-behavior: smooth; }
     body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--dark); }
     /* Tailwind CDN doesn't compile @apply — plain CSS utilities */
-    .chip { display:inline-flex; align-items:center; border-radius:9999px; padding:0.25rem 0.75rem; font-size:0.875rem; line-height:1.25rem; border:1px solid rgba(61,60,66,0.15); }
+    .chip { display:inline-flex; align-items:center; border-radius:9999px; padding:0.25rem 0.75rem; font-size:0.875rem; line-height:1.25rem; border:1px solid var(--border); }
     .text-accent { color: var(--accent); }
     .bg-accent { background-color: var(--accent); color:#fff; }
     .badge { display:inline-block; border-radius:9999px; padding:0.15rem 0.5rem; font-size:0.75rem; font-weight:600; background: var(--muted); color: var(--dark); }
+    .card { background: var(--card); border:1px solid var(--border); }
   </style>
 </head>
-<body class="bg-neutral-50 text-neutral-900">
+<body>
   <!-- Header / Nav -->
-  <header class="sticky top-0 z-50 bg-white/60 backdrop-blur border-b border-neutral-200/60">
+  <header class="sticky top-0 z-50 bg-white/60 dark:bg-black/40 backdrop-blur border-b" style="border-color: var(--border)">
     <div class="max-w-6xl mx-auto px-4 py-4">
     <nav class="flex items-center justify-between">
       <a href="#top" class="font-extrabold tracking-tight text-xl">Aditya<span class="text-accent">.</span></a>
@@ -43,7 +58,10 @@
         <a href="#about" class="hover:opacity-80">About</a>
         <a href="#contact" class="hover:opacity-80">Contact</a>
       </div>
-      <a href="#contact" class="md:inline-flex hidden rounded-2xl bg-accent px-4 py-2 text-white font-medium shadow-sm hover:shadow">Hire me</a>
+      <div class="flex items-center gap-3">
+        <button id="theme-toggle" class="rounded-2xl border border-neutral-300 px-3 py-2 text-sm font-medium hover:bg-white/60 dark:hover:bg-white/10" aria-label="Toggle dark mode">Toggle</button>
+        <a href="#contact" class="md:inline-flex hidden rounded-2xl bg-accent px-4 py-2 text-white font-medium shadow-sm hover:shadow">Hire me</a>
+      </div>
     </nav>
     </div>
   </header>
@@ -55,7 +73,7 @@
         Cloud & Backend Engineer<br>
         <span class="text-accent">Monash M.IT ’26</span>
       </h1>
-      <p class="mt-4 text-neutral-700 text-lg leading-relaxed max-w-prose">I design reliable backends and lightweight cloud services with <strong>AWS Serverless</strong> (Lambda, API Gateway, S3, DynamoDB) and <strong>Python</strong>. Open to <strong>part‑time internships</strong> (10–20 hrs/week, ≤48 hrs/fortnight). I can share private code samples and walk through them live.</p>
+      <p class="mt-4 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed max-w-prose">I design reliable backends and lightweight cloud services with <strong>AWS Serverless</strong> (Lambda, API Gateway, S3, DynamoDB) and <strong>Python</strong>. Open to <strong>part‑time internships</strong> (10–20 hrs/week, ≤48 hrs/fortnight). I can share private code samples and walk through them live.</p>
       <div class="mt-6 flex flex-wrap gap-3">
         <span class="chip border-neutral-300">Python</span>
         <span class="chip border-neutral-300">FastAPI / Flask</span>
@@ -72,8 +90,8 @@
       </div>
     </div>
     <div class="relative">
-      <div class="aspect-square rounded-3xl bg-gradient-to-br from-[#EEE3CB] to-[#D7C0AE] p-1 shadow-inner">
-        <div class="h-full w-full rounded-3xl bg-white/60 backdrop-blur grid place-items-center">
+      <div class="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-[#EEE3CB] to-[#D7C0AE] p-1 shadow-inner">
+        <div class="h-full w-full rounded-3xl overflow-hidden bg-white/60 backdrop-blur grid place-items-center">
           <picture>
             <img
                 src="assets/headshot.jpeg"
@@ -96,12 +114,16 @@
       </div>
       <div class="grid md:grid-cols-2 gap-6">
         <!-- BirdTag -->
-        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+        <article class="rounded-3xl card p-6 shadow-sm hover:shadow-md transition">
           <div class="flex items-center justify-between">
-            <h3 class="text-xl font-bold">BirdTag — Serverless Media Tagging (Case Study)</h3>
+            <h3 class="text-xl font-bold">BirdTag - Serverless Media Tagging (Case Study)</h3>
             <span class="badge">Case Study</span>
           </div>
-          <p class="mt-3 text-neutral-700">Architecture + sample handlers for a serverless media tagging flow: <em>API Gateway</em> → <em>Lambda</em> (detect/route) → <em>DynamoDB</em> metadata with pre‑signed <em>S3</em> links. Endpoints include <code>/search-by-species</code>, <code>/get-original-url</code>, <code>/modify-tags</code>. Repo contains diagrams, code snippets, and next‑steps.</p>
+          <p class="mt-3 text-neutral-700 dark:text-neutral-300 leading-relaxed">Architecture and sample handlers for a serverless media tagging flow: API Gateway → Lambda (detect/route) → DynamoDB metadata with pre-signed S3 links.</p>
+          <ul class="mt-3 list-disc pl-5 text-neutral-700 dark:text-neutral-300">
+            <li>Endpoints: <code>/search-by-species</code>, <code>/get-original-url</code>, <code>/modify-tags</code></li>
+            <li>Repo includes diagrams, code snippets, and next steps.</li>
+          </ul>
           <div class="mt-4 flex flex-wrap gap-2 text-sm">
             <span class="chip">Lambda</span>
             <span class="chip">API Gateway</span>
@@ -114,12 +136,15 @@
         </article>
         
         <!-- Nestle‑In -->
-        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+        <article class="rounded-3xl card p-6 shadow-sm hover:shadow-md transition">
           <div class="flex items-center justify-between">
-            <h3 class="text-xl font-bold">Nestle‑In — Community App Prototype</h3>
+            <h3 class="text-xl font-bold">Nestle‑In - Community App Prototype</h3>
             <span class="badge">Prototype</span>
           </div>
-          <p class="mt-3 text-neutral-700">Lightweight prototype focused on helping newcomers "nestle in": simple resources, bookmarking, and a clean API layer. The repo outlines the data model, endpoints, and next steps.</p>
+          <p class="mt-3 text-neutral-700 dark:text-neutral-300 leading-relaxed">Lightweight prototype focused on helping newcomers "nestle in": simple resources, bookmarking, and a clean API layer.</p>
+          <ul class="mt-3 list-disc pl-5 text-neutral-700 dark:text-neutral-300">
+            <li>Repo outlines the data model, endpoints, and next steps.</li>
+          </ul>
           <div class="mt-4 flex flex-wrap gap-2 text-sm">
             <span class="chip">Python</span>
             <span class="chip">REST API</span>
@@ -136,10 +161,10 @@
     <section id="experience" class="py-10">
       <h2 class="text-2xl md:text-3xl font-extrabold mb-4">Experience</h2>
       <div class="space-y-4">
-        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+        <article class="rounded-3xl card p-6 shadow-sm">
           <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 class="text-xl font-bold">Full Stack Engineer (Volunteer) — MOSAIC</h3>
-            <span class="badge">Apr 2025 – Present · Jakarta</span>
+            <h3 class="text-xl font-bold">Full Stack Engineer (Volunteer) - MOSAIC</h3>
+            <span class="badge">Apr 2025 – Present · Melbourne</span>
           </div>
           <ul class="mt-3 list-disc pl-5 text-stone-700">
             <li>Built web apps with Vue.js; integrated AWS serverless (S3, Lambda, DynamoDB, API Gateway, Cognito) for secure, scalable solutions.</li>
@@ -148,9 +173,9 @@
           </ul>
         </article>
 
-        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">
+        <article class="rounded-3xl card p-6 shadow-sm">
           <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 class="text-xl font-bold">Senior Integration Consultant — Darwinbox</h3>
+            <h3 class="text-xl font-bold">Senior Integration Consultant - Darwinbox</h3>
             <span class="badge">Apr 2024 – Jul 2024 · Jakarta</span>
           </div>
           <ul class="mt-3 list-disc pl-5 text-stone-700">
@@ -159,7 +184,7 @@
           </ul>
 
           <div class="mt-4 flex flex-wrap items-baseline justify-between gap-2">
-            <h4 class="font-semibold">Integration Consultant — Darwinbox</h4>
+            <h4 class="font-semibold">Integration Consultant - Darwinbox</h4>
             <span class="badge">Oct 2022 – Mar 2024</span>
           </div>
           <ul class="mt-2 list-disc pl-5 text-stone-700">
@@ -168,7 +193,7 @@
           </ul>
 
           <div class="mt-4 flex flex-wrap items-baseline justify-between gap-2">
-            <h4 class="font-semibold">Implementation & Account Management — Darwinbox</h4>
+            <h4 class="font-semibold">Implementation & Account Management - Darwinbox</h4>
             <span class="badge">Feb 2021 – Jan 2023</span>
           </div>
           <ul class="mt-2 list-disc pl-5 text-stone-700">
@@ -214,15 +239,14 @@
 
     <!-- Contact -->
     <section id="contact" class="py-10">
-      <div class="rounded-3xl border border-neutral-200 bg-white p-6 md:p-8">
+      <div class="rounded-3xl card p-6 md:p-8">
         <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
-        <p class="mt-2 text-neutral-700">Best way: email or LinkedIn. I reply within a day.</p>
+        <p class="mt-2 text-neutral-700 dark:text-neutral-300">Best way: email or LinkedIn. I reply within a day.</p>
         <div class="mt-5 flex flex-wrap gap-3">
-          <a class="rounded-2xl bg-accent text-white px-5 py-3 font-semibold hover:shadow" href="mailto:youremail@example.com" id="email-link">Email me</a>
+          <a class="rounded-2xl bg-accent text-white px-5 py-3 font-semibold hover:shadow" href="mailto:mehrotra.aditya16@outlook.com" id="email-link">Email me</a>
           <a class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://www.linkedin.com/in/your-link">LinkedIn</a>
           <a class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://github.com/coded-by-aditya">GitHub</a>
         </div>
-        <p class="text-sm text-neutral-500 mt-4">Tip: update the email/links above and add <code>resume.pdf</code> to the repo root.</p>
       </div>
     </section>
   </main>
@@ -251,6 +275,22 @@
         setTimeout(() => msg.remove(), 1200);
       });
     }
+    (function() {
+      const btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+      function setTheme(mode) {
+        if (mode === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        try { localStorage.setItem('theme', mode); } catch (_) {}
+      }
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        setTheme(isDark ? 'light' : 'dark');
+      });
+    })();
   </script>
 </body>
 </html>
