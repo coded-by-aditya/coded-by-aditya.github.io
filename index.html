@@ -32,17 +32,88 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Refined palette with dark mode */
-    :root { --bg:#F7F7F8; --muted:#E7E8EA; --accent:#5B8DEF; --dark:#1F2328; --card:#FFFFFF; --border:rgba(31,35,40,0.12); }
-    html.dark { --bg:#0B0F14; --muted:#0F1620; --accent:#7DB2FF; --dark:#E6EDF3; --card:#0F1620; --border:rgba(230,237,243,0.15); }
+    /* Modern color palette with dark mode */
+    :root {
+      --bg:#FAFBFC;
+      --muted:#F1F3F5;
+      --accent:#0EA5E9;
+      --accent-hover:#0284C7;
+      --dark:#1A1A1A;
+      --card:#FFFFFF;
+      --border:rgba(0,0,0,0.08);
+      --text-muted:#6B7280;
+    }
+    html.dark {
+      --bg:#0F1419;
+      --muted:#1A1F2E;
+      --accent:#38BDF8;
+      --accent-hover:#0EA5E9;
+      --dark:#F9FAFB;
+      --card:#1A1F2E;
+      --border:rgba(255,255,255,0.1);
+      --text-muted:#9CA3AF;
+    }
     html { scroll-behavior: smooth; }
     body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--dark); }
     /* Tailwind CDN doesn't compile @apply — plain CSS utilities */
-    .chip { display:inline-flex; align-items:center; border-radius:9999px; padding:0.25rem 0.75rem; font-size:0.875rem; line-height:1.25rem; border:1px solid var(--border); }
+    .chip { display:inline-flex; align-items:center; border-radius:9999px; padding:0.25rem 0.75rem; font-size:0.875rem; line-height:1.25rem; border:1px solid var(--border); transition: all 0.2s ease; }
+    .chip:hover { background: var(--muted); }
     .text-accent { color: var(--accent); }
-    .bg-accent { background-color: var(--accent); color:#fff; }
+    .bg-accent { background-color: var(--accent); color:#fff; transition: background-color 0.2s ease; }
+    .bg-accent:hover { background-color: var(--accent-hover); }
     .badge { display:inline-block; border-radius:9999px; padding:0.15rem 0.5rem; font-size:0.75rem; font-weight:600; background: var(--muted); color: var(--dark); }
-    .card { background: var(--card); border:1px solid var(--border); }
+    .card { background: var(--card); border:1px solid var(--border); transition: all 0.3s ease; }
+
+    /* Toggle Switch */
+    .theme-toggle {
+      position: relative;
+      width: 52px;
+      height: 28px;
+      background: var(--muted);
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border: 1px solid var(--border);
+    }
+    .theme-toggle:hover {
+      background: var(--border);
+    }
+    .theme-toggle-slider {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 9999px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    html.dark .theme-toggle-slider {
+      transform: translateX(24px);
+      background: #F59E0B;
+    }
+    .theme-toggle-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      transition: opacity 0.2s ease;
+    }
+    .theme-toggle-icon.sun {
+      left: 6px;
+      opacity: 1;
+    }
+    .theme-toggle-icon.moon {
+      right: 6px;
+      opacity: 0.4;
+    }
+    html.dark .theme-toggle-icon.sun {
+      opacity: 0.4;
+    }
+    html.dark .theme-toggle-icon.moon {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -59,7 +130,11 @@
         <a href="#contact" class="hover:opacity-80">Contact</a>
       </div>
       <div class="flex items-center gap-3">
-        <button id="theme-toggle" class="rounded-2xl border border-neutral-300 px-3 py-2 text-sm font-medium hover:bg-white/60 dark:hover:bg-white/10" aria-label="Toggle dark mode">Toggle</button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-toggle-icon sun">☀️</span>
+          <span class="theme-toggle-icon moon">🌙</span>
+          <div class="theme-toggle-slider"></div>
+        </button>
         <a href="#contact" class="md:inline-flex hidden rounded-2xl bg-accent px-4 py-2 text-white font-medium shadow-sm hover:shadow">Hire me</a>
       </div>
     </nav>
@@ -73,7 +148,7 @@
         Cloud & Backend Engineer<br>
         <span class="text-accent">Monash M.IT ’26</span>
       </h1>
-      <p class="mt-4 text-neutral-700 dark:text-neutral-300 text-lg leading-relaxed max-w-prose">I design reliable backends and lightweight cloud services with <strong>AWS Serverless</strong> (Lambda, API Gateway, S3, DynamoDB) and <strong>Python</strong>. Open to <strong>part‑time internships</strong> (10–20 hrs/week, ≤48 hrs/fortnight). I can share private code samples and walk through them live.</p>
+      <p class="mt-4 text-lg leading-relaxed max-w-prose" style="color: var(--text-muted)">I design reliable backends and lightweight cloud services with <strong>AWS Serverless</strong> (Lambda, API Gateway, S3, DynamoDB) and <strong>Python</strong>. Open to <strong>part‑time internships</strong> (10–20 hrs/week, ≤48 hrs/fortnight). I can share private code samples and walk through them live.</p>
       <div class="mt-6 flex flex-wrap gap-3">
         <span class="chip border-neutral-300">Python</span>
         <span class="chip border-neutral-300">FastAPI / Flask</span>
@@ -119,8 +194,8 @@
             <h3 class="text-xl font-bold">BirdTag - Serverless Media Tagging (Case Study)</h3>
             <span class="badge">Case Study</span>
           </div>
-          <p class="mt-3 text-neutral-700 dark:text-neutral-300 leading-relaxed">Architecture and sample handlers for a serverless media tagging flow: API Gateway → Lambda (detect/route) → DynamoDB metadata with pre-signed S3 links.</p>
-          <ul class="mt-3 list-disc pl-5 text-neutral-700 dark:text-neutral-300">
+          <p class="mt-3 leading-relaxed" style="color: var(--text-muted)">Architecture and sample handlers for a serverless media tagging flow: API Gateway → Lambda (detect/route) → DynamoDB metadata with pre-signed S3 links.</p>
+          <ul class="mt-3 list-disc pl-5" style="color: var(--text-muted)">
             <li>Endpoints: <code>/search-by-species</code>, <code>/get-original-url</code>, <code>/modify-tags</code></li>
             <li>Repo includes diagrams, code snippets, and next steps.</li>
           </ul>
@@ -141,8 +216,8 @@
             <h3 class="text-xl font-bold">Nestle‑In - Community App Prototype</h3>
             <span class="badge">Prototype</span>
           </div>
-          <p class="mt-3 text-neutral-700 dark:text-neutral-300 leading-relaxed">Lightweight prototype focused on helping newcomers "nestle in": simple resources, bookmarking, and a clean API layer.</p>
-          <ul class="mt-3 list-disc pl-5 text-neutral-700 dark:text-neutral-300">
+          <p class="mt-3 leading-relaxed" style="color: var(--text-muted)">Lightweight prototype focused on helping newcomers "nestle in": simple resources, bookmarking, and a clean API layer.</p>
+          <ul class="mt-3 list-disc pl-5" style="color: var(--text-muted)">
             <li>Repo outlines the data model, endpoints, and next steps.</li>
           </ul>
           <div class="mt-4 flex flex-wrap gap-2 text-sm">
@@ -166,7 +241,7 @@
             <h3 class="text-xl font-bold">Full Stack Engineer (Volunteer) - MOSAIC</h3>
             <span class="badge">Apr 2025 – Present · Melbourne</span>
           </div>
-          <ul class="mt-3 list-disc pl-5 text-stone-700">
+          <ul class="mt-3 list-disc pl-5" style="color: var(--text-muted)">
             <li>Built web apps with Vue.js; integrated AWS serverless (S3, Lambda, DynamoDB, API Gateway, Cognito) for secure, scalable solutions.</li>
             <li>Set up CI/CD with GitHub Actions; containerized with Docker & Kubernetes, cutting release cycles ~40%.</li>
             <li>Hardened auth with Cognito, IAM and role-based access; shipped in Agile/Scrum teams.</li>
@@ -178,7 +253,7 @@
             <h3 class="text-xl font-bold">Senior Integration Consultant - Darwinbox</h3>
             <span class="badge">Apr 2024 – Jul 2024 · Jakarta</span>
           </div>
-          <ul class="mt-3 list-disc pl-5 text-stone-700">
+          <ul class="mt-3 list-disc pl-5" style="color: var(--text-muted)">
             <li>Led API integrations using Python & R; improved automation & interoperability, reducing downtime ~20%.</li>
             <li>Automated data workflows; migrated legacy code to Python/R for maintainability and performance.</li>
           </ul>
@@ -187,7 +262,7 @@
             <h4 class="font-semibold">Integration Consultant - Darwinbox</h4>
             <span class="badge">Oct 2022 – Mar 2024</span>
           </div>
-          <ul class="mt-2 list-disc pl-5 text-stone-700">
+          <ul class="mt-2 list-disc pl-5" style="color: var(--text-muted)">
             <li>Developed and deployed API-based integrations across banking, automotive, retail, and sustainability sectors.</li>
             <li>Optimized ETL pipelines (≈95% test accuracy); ran technical workshops boosting adoption ~75%.</li>
           </ul>
@@ -196,7 +271,7 @@
             <h4 class="font-semibold">Implementation & Account Management - Darwinbox</h4>
             <span class="badge">Feb 2021 – Jan 2023</span>
           </div>
-          <ul class="mt-2 list-disc pl-5 text-stone-700">
+          <ul class="mt-2 list-disc pl-5" style="color: var(--text-muted)">
             <li>Managed end‑to‑end deployment for 130+ clients; cut implementation time ~50%.</li>
             <li>Built dashboards & reports (Power BI, Tableau); coordinated cross‑functional launches.</li>
           </ul>
@@ -208,17 +283,17 @@
     <section id="skills" class="py-10">
       <h2 class="text-2xl md:text-3xl font-extrabold mb-4">Skills</h2>
       <div class="grid md:grid-cols-3 gap-4">
-        <div class="rounded-3xl border border-neutral-200 bg-white p-5">
+        <div class="rounded-3xl card p-5">
           <h3 class="font-semibold">Backend & APIs</h3>
-          <p class="mt-2 text-neutral-700">Python (FastAPI/Flask), HTTP fundamentals, auth patterns, testing, small services that stay up.</p>
+          <p class="mt-2" style="color: var(--text-muted)">Python (FastAPI/Flask), HTTP fundamentals, auth patterns, testing, small services that stay up.</p>
         </div>
-        <div class="rounded-3xl border border-neutral-200 bg-white p-5">
+        <div class="rounded-3xl card p-5">
           <h3 class="font-semibold">Cloud</h3>
-          <p class="mt-2 text-neutral-700">AWS Lambda, API Gateway, DynamoDB, S3, pre‑signed URLs, Docker, Terraform basics, GitHub Actions.</p>
+          <p class="mt-2" style="color: var(--text-muted)">AWS Lambda, API Gateway, DynamoDB, S3, pre‑signed URLs, Docker, Terraform basics, GitHub Actions.</p>
         </div>
-        <div class="rounded-3xl border border-neutral-200 bg-white p-5">
+        <div class="rounded-3xl card p-5">
           <h3 class="font-semibold">Data</h3>
-          <p class="mt-2 text-neutral-700">SQL & schema design, pandas, simple ETL notebooks, lightweight reporting.</p>
+          <p class="mt-2" style="color: var(--text-muted)">SQL & schema design, pandas, simple ETL notebooks, lightweight reporting.</p>
         </div>
       </div>
     </section>
@@ -226,14 +301,14 @@
     <!-- About -->
     <section id="about" class="py-10">
       <h2 class="text-2xl md:text-3xl font-extrabold mb-4">About</h2>
-      <p class="text-neutral-700 leading-relaxed">
-        I’m Aditya Mehrotra, a Master of IT student at Monash (’26) based in Melbourne. I like building practical features with clean APIs and small cloud services.
+      <p class="leading-relaxed" style="color: var(--text-muted)">
+        I'm Aditya Mehrotra, a Master of IT student at Monash ('26) based in Melbourne. I like building practical features with clean APIs and small cloud services.
       </p>
-      <p class="text-neutral-700 leading-relaxed mt-3">
-        <strong>Academic integrity:</strong> I don’t publish current coursework online. I’m happy to demo skills privately (screen share, repo snippets) on request.
+      <p class="leading-relaxed mt-3" style="color: var(--text-muted)">
+        <strong>Academic integrity:</strong> I don't publish current coursework online. I'm happy to demo skills privately (screen share, repo snippets) on request.
       </p>
-      <p class="text-neutral-700 leading-relaxed mt-3">
-        I’m available for <strong>part‑time internships</strong> and short paid trials (10–20 hrs/week, ≤48 hrs/fortnight).
+      <p class="leading-relaxed mt-3" style="color: var(--text-muted)">
+        I'm available for <strong>part‑time internships</strong> and short paid trials (10–20 hrs/week, ≤48 hrs/fortnight).
       </p>
     </section>
 
@@ -241,7 +316,7 @@
     <section id="contact" class="py-10">
       <div class="rounded-3xl card p-6 md:p-8">
         <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
-        <p class="mt-2 text-neutral-700 dark:text-neutral-300">Best way: email or LinkedIn. I reply within a day.</p>
+        <p class="mt-2" style="color: var(--text-muted)">Best way: email or LinkedIn. I reply within a day.</p>
         <div class="mt-5 flex flex-wrap gap-3">
           <a class="rounded-2xl bg-accent text-white px-5 py-3 font-semibold hover:shadow" href="mailto:mehrotra.aditya16@outlook.com" id="email-link">Email me</a>
           <a class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://www.linkedin.com/in/your-link">LinkedIn</a>
@@ -251,7 +326,7 @@
     </section>
   </main>
 
-  <footer class="max-w-6xl mx-auto px-4 pb-10 text-sm text-neutral-500">
+  <footer class="max-w-6xl mx-auto px-4 pb-10 text-sm" style="color: var(--text-muted)">
     <div class="flex items-center justify-between">
       <p>© <span id="year"></span> Aditya Mehrotra</p>
       <div class="flex gap-4">
