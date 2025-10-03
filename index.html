@@ -142,62 +142,64 @@
   </header>
 
   <!-- Hero -->
-  <section id="top" class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-        Cloud & Backend Engineer<br>
-        <span class="text-accent">Monash M.IT ’26</span>
-      </h1>
-      <p class="mt-4 text-lg leading-relaxed max-w-prose" style="color: var(--text-muted)">I design reliable backends and lightweight cloud services with <strong>AWS Serverless</strong> (Lambda, API Gateway, S3, DynamoDB) and <strong>Python</strong>. Open to <strong>part‑time internships</strong> (10–20 hrs/week, ≤48 hrs/fortnight). I can share private code samples and walk through them live.</p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <span class="chip border-neutral-300">Python</span>
-        <span class="chip border-neutral-300">FastAPI / Flask</span>
-        <span class="chip border-neutral-300">AWS Lambda</span>
-        <span class="chip border-neutral-300">API Gateway</span>
-        <span class="chip border-neutral-300">DynamoDB</span>
-        <span class="chip border-neutral-300">Docker</span>
-        <span class="chip border-neutral-300">GitHub Actions</span>
+  <section id="top" class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div class="order-2 lg:order-1">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+          Cloud & Backend Engineer<br>
+          <span class="text-accent">Monash M.IT '26</span>
+        </h1>
+        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color: var(--text-muted)">I design reliable backends and lightweight cloud services with <strong>AWS Serverless</strong> (Lambda, API Gateway, S3, DynamoDB) and <strong>Python</strong>. Open to <strong>part‑time internships</strong> (10–20 hrs/week, ≤48 hrs/fortnight). I can share private code samples and walk through them live.</p>
+        <div class="mt-6 flex flex-wrap gap-2 sm:gap-3">
+          <span class="chip border-neutral-300">Python</span>
+          <span class="chip border-neutral-300">FastAPI / Flask</span>
+          <span class="chip border-neutral-300">AWS Lambda</span>
+          <span class="chip border-neutral-300">API Gateway</span>
+          <span class="chip border-neutral-300">DynamoDB</span>
+          <span class="chip border-neutral-300">Docker</span>
+          <span class="chip border-neutral-300">GitHub Actions</span>
+        </div>
+        <div class="mt-6 sm:mt-8 flex flex-wrap gap-3">
+          <a href="#projects" class="rounded-2xl bg-accent px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base text-white font-semibold shadow-sm hover:shadow">See projects</a>
+          <a href="resume.pdf" class="rounded-2xl border border-neutral-300 px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:bg-white/60" title="Add your PDF named resume.pdf at repo root">Download résumé</a>
+          <a href="#contact" class="rounded-2xl border border-neutral-300 px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:bg-white/60">Contact</a>
+        </div>
       </div>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="#projects" class="rounded-2xl bg-accent px-5 py-3 text-white font-semibold shadow-sm hover:shadow">See projects</a>
-        <a href="resume.pdf" class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60" title="Add your PDF named resume.pdf at repo root">Download 1‑page résumé</a>
-        <a href="#contact" class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60">Contact</a>
-      </div>
-    </div>
-    <div class="relative">
-      <div class="aspect-square rounded-3xl overflow-hidden shadow-lg">
-        <img
-            src="assets/headshot.jpeg"
-            alt="Portrait of Aditya Mehrotra"
-            class="h-full w-full object-cover rounded-3xl"
-            width="800" height="800" loading="eager" decoding="async" fetchpriority="high"
-        />
+      <div class="order-1 lg:order-2">
+        <div class="aspect-square max-w-md mx-auto lg:max-w-none rounded-3xl overflow-hidden shadow-lg">
+          <img
+              src="assets/headshot.jpeg"
+              alt="Portrait of Aditya Mehrotra"
+              class="h-full w-full object-cover rounded-3xl"
+              width="800" height="800" loading="eager" decoding="async" fetchpriority="high"
+          />
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <main class="max-w-6xl mx-auto px-4">
-    <section id="projects" class="py-10">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="projects" class="py-8 sm:py-12">
       <div class="flex items-end justify-between gap-4 mb-6">
-        <h2 class="text-2xl md:text-3xl font-extrabold">Projects</h2>
-        <a href="#contact" class="text-accent hover:underline">Contact →</a>
+        <h2 class="text-2xl sm:text-3xl font-extrabold">Projects</h2>
+        <a href="#contact" class="text-sm sm:text-base text-accent hover:underline">Contact →</a>
       </div>
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- BirdTag -->
-        <article class="rounded-3xl card p-6 shadow-sm hover:shadow-md transition">
+        <article class="rounded-3xl card p-5 sm:p-6 shadow-sm hover:shadow-md transition">
           <div class="flex items-start justify-between gap-4 mb-3">
-            <h3 class="text-xl font-bold">BirdTag - Serverless Media Tagging</h3>
-            <span class="badge">Case Study</span>
+            <h3 class="text-lg sm:text-xl font-bold">BirdTag - Serverless Media Tagging</h3>
+            <span class="badge whitespace-nowrap">Case Study</span>
           </div>
-          <p class="leading-relaxed mb-4" style="color: var(--text-muted)">Architecture and sample handlers for a serverless media tagging flow: API Gateway → Lambda (detect/route) → DynamoDB metadata with pre-signed S3 links.</p>
+          <p class="text-sm sm:text-base leading-relaxed mb-4" style="color: var(--text-muted)">Architecture and sample handlers for a serverless media tagging flow: API Gateway → Lambda (detect/route) → DynamoDB metadata with pre-signed S3 links.</p>
           <div class="mb-4 flex flex-wrap gap-2">
             <span class="chip">Lambda</span>
             <span class="chip">API Gateway</span>
             <span class="chip">DynamoDB</span>
             <span class="chip">Python</span>
           </div>
-          <a class="inline-block rounded-xl bg-accent px-5 py-2.5 text-white font-medium hover:opacity-90 transition" target="_blank" rel="noopener" href="https://github.com/coded-by-aditya/birdtag-aws">View Case Study</a>
+          <a class="inline-block rounded-xl bg-accent px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base text-white font-medium hover:opacity-90 transition" target="_blank" rel="noopener" href="https://github.com/coded-by-aditya/birdtag-aws">View Case Study</a>
         </article>
 
         <!-- Nestle‑In -->
@@ -218,45 +220,45 @@
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="py-10">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-4">Experience</h2>
-      <div class="space-y-4">
-        <article class="rounded-3xl card p-6 shadow-sm">
-          <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 class="text-xl font-bold">Full Stack Engineer (Volunteer) - MOSAIC</h3>
-            <span class="badge">Apr 2025 – Present · Melbourne</span>
+    <section id="experience" class="py-8 sm:py-12">
+      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 sm:mb-6">Experience</h2>
+      <div class="space-y-4 sm:space-y-6">
+        <article class="rounded-3xl card p-5 sm:p-6 shadow-sm">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
+            <h3 class="text-lg sm:text-xl font-bold">Full Stack Engineer (Volunteer) - MOSAIC</h3>
+            <span class="badge text-xs sm:text-sm">Apr 2025 – Present · Melbourne</span>
           </div>
-          <ul class="mt-3 list-disc pl-5" style="color: var(--text-muted)">
+          <ul class="mt-3 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
             <li>Built web apps with Vue.js; integrated AWS serverless (S3, Lambda, DynamoDB, API Gateway, Cognito) for secure, scalable solutions.</li>
             <li>Set up CI/CD with GitHub Actions; containerized with Docker & Kubernetes, cutting release cycles ~40%.</li>
             <li>Hardened auth with Cognito, IAM and role-based access; shipped in Agile/Scrum teams.</li>
           </ul>
         </article>
 
-        <article class="rounded-3xl card p-6 shadow-sm">
-          <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 class="text-xl font-bold">Senior Integration Consultant - Darwinbox</h3>
-            <span class="badge">Apr 2024 – Jul 2024 · Jakarta</span>
+        <article class="rounded-3xl card p-5 sm:p-6 shadow-sm">
+          <div class="flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
+            <h3 class="text-lg sm:text-xl font-bold">Senior Integration Consultant - Darwinbox</h3>
+            <span class="badge text-xs sm:text-sm">Apr 2024 – Jul 2024 · Jakarta</span>
           </div>
-          <ul class="mt-3 list-disc pl-5" style="color: var(--text-muted)">
+          <ul class="mt-3 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
             <li>Led API integrations using Python & R; improved automation & interoperability, reducing downtime ~20%.</li>
             <li>Automated data workflows; migrated legacy code to Python/R for maintainability and performance.</li>
           </ul>
 
-          <div class="mt-4 flex flex-wrap items-baseline justify-between gap-2">
-            <h4 class="font-semibold">Integration Consultant - Darwinbox</h4>
-            <span class="badge">Oct 2022 – Mar 2024</span>
+          <div class="mt-4 flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
+            <h4 class="text-sm sm:text-base font-semibold">Integration Consultant - Darwinbox</h4>
+            <span class="badge text-xs sm:text-sm">Oct 2022 – Mar 2024</span>
           </div>
-          <ul class="mt-2 list-disc pl-5" style="color: var(--text-muted)">
+          <ul class="mt-2 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
             <li>Developed and deployed API-based integrations across banking, automotive, retail, and sustainability sectors.</li>
             <li>Optimized ETL pipelines (≈95% test accuracy); ran technical workshops boosting adoption ~75%.</li>
           </ul>
 
-          <div class="mt-4 flex flex-wrap items-baseline justify-between gap-2">
-            <h4 class="font-semibold">Implementation & Account Management - Darwinbox</h4>
-            <span class="badge">Feb 2021 – Jan 2023</span>
+          <div class="mt-4 flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
+            <h4 class="text-sm sm:text-base font-semibold">Implementation & Account Management - Darwinbox</h4>
+            <span class="badge text-xs sm:text-sm">Feb 2021 – Jan 2023</span>
           </div>
-          <ul class="mt-2 list-disc pl-5" style="color: var(--text-muted)">
+          <ul class="mt-2 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
             <li>Managed end‑to‑end deployment for 130+ clients; cut implementation time ~50%.</li>
             <li>Built dashboards & reports (Power BI, Tableau); coordinated cross‑functional launches.</li>
           </ul>
@@ -265,54 +267,54 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="py-10">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-4">Skills</h2>
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="rounded-3xl card p-5">
-          <h3 class="font-semibold">Backend & APIs</h3>
-          <p class="mt-2" style="color: var(--text-muted)">Python (FastAPI/Flask), HTTP fundamentals, auth patterns, testing, small services that stay up.</p>
+    <section id="skills" class="py-8 sm:py-12">
+      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 sm:mb-6">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div class="rounded-3xl card p-5 sm:p-6">
+          <h3 class="text-base sm:text-lg font-semibold">Backend & APIs</h3>
+          <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted)">Python (FastAPI/Flask), HTTP fundamentals, auth patterns, testing, small services that stay up.</p>
         </div>
-        <div class="rounded-3xl card p-5">
-          <h3 class="font-semibold">Cloud</h3>
-          <p class="mt-2" style="color: var(--text-muted)">AWS Lambda, API Gateway, DynamoDB, S3, pre‑signed URLs, Docker, Terraform basics, GitHub Actions.</p>
+        <div class="rounded-3xl card p-5 sm:p-6">
+          <h3 class="text-base sm:text-lg font-semibold">Cloud</h3>
+          <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted)">AWS Lambda, API Gateway, DynamoDB, S3, pre‑signed URLs, Docker, Terraform basics, GitHub Actions.</p>
         </div>
-        <div class="rounded-3xl card p-5">
-          <h3 class="font-semibold">Data</h3>
-          <p class="mt-2" style="color: var(--text-muted)">SQL & schema design, pandas, simple ETL notebooks, lightweight reporting.</p>
+        <div class="rounded-3xl card p-5 sm:p-6">
+          <h3 class="text-base sm:text-lg font-semibold">Data</h3>
+          <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted)">SQL & schema design, pandas, simple ETL notebooks, lightweight reporting.</p>
         </div>
       </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="py-10">
-      <h2 class="text-2xl md:text-3xl font-extrabold mb-4">About</h2>
-      <p class="leading-relaxed" style="color: var(--text-muted)">
+    <section id="about" class="py-8 sm:py-12">
+      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4">About</h2>
+      <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-muted)">
         I'm Aditya Mehrotra, a Master of IT student at Monash ('26) based in Melbourne. I like building practical features with clean APIs and small cloud services.
       </p>
-      <p class="leading-relaxed mt-3" style="color: var(--text-muted)">
+      <p class="text-sm sm:text-base leading-relaxed mt-3" style="color: var(--text-muted)">
         <strong>Academic integrity:</strong> I don't publish current coursework online. I'm happy to demo skills privately (screen share, repo snippets) on request.
       </p>
-      <p class="leading-relaxed mt-3" style="color: var(--text-muted)">
+      <p class="text-sm sm:text-base leading-relaxed mt-3" style="color: var(--text-muted)">
         I'm available for <strong>part‑time internships</strong> and short paid trials (10–20 hrs/week, ≤48 hrs/fortnight).
       </p>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-10">
-      <div class="rounded-3xl card p-6 md:p-8">
-        <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
-        <p class="mt-2" style="color: var(--text-muted)">Best way: email or LinkedIn. I reply within a day.</p>
+    <section id="contact" class="py-8 sm:py-12">
+      <div class="rounded-3xl card p-5 sm:p-6 lg:p-8">
+        <h2 class="text-2xl sm:text-3xl font-extrabold">Contact</h2>
+        <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted)">Best way: email or LinkedIn. I reply within a day.</p>
         <div class="mt-5 flex flex-wrap gap-3">
-          <a class="rounded-2xl bg-accent text-white px-5 py-3 font-semibold hover:shadow" href="mailto:mehrotra.aditya16@outlook.com" id="email-link">Email me</a>
-          <a class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://www.linkedin.com/in/aditya-mehrotra-2a7a141a6/">LinkedIn</a>
-          <a class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://github.com/coded-by-aditya">GitHub</a>
+          <a class="rounded-2xl bg-accent text-white px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:shadow" href="mailto:mehrotra.aditya16@outlook.com" id="email-link">Email me</a>
+          <a class="rounded-2xl border border-neutral-300 px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://www.linkedin.com/in/aditya-mehrotra-2a7a141a6/">LinkedIn</a>
+          <a class="rounded-2xl border border-neutral-300 px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://github.com/coded-by-aditya">GitHub</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="max-w-6xl mx-auto px-4 pb-10 text-sm" style="color: var(--text-muted)">
-    <div class="flex items-center justify-between">
+  <footer class="max-w-6xl mx-auto px-4 sm:px-6 pb-8 sm:pb-10 text-xs sm:text-sm" style="color: var(--text-muted)">
+    <div class="flex flex-wrap items-center justify-between gap-4">
       <p>© <span id="year"></span> Aditya Mehrotra</p>
       <div class="flex gap-4">
         <a href="#top" class="hover:underline">Back to top</a>
