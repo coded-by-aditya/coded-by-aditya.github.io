@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aditya Mehrotra | Android & Cloud</title>
+  <meta name="description" content="Aditya Mehrotra — Android (Jetpack Compose) & AWS Serverless. Monash M.IT ’26. Open to part‑time internships.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    .chip { @apply inline-flex items-center rounded-full border px-3 py-1 text-sm; }
+  </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900">
+  <!-- Header / Nav -->
+  <header class="max-w-6xl mx-auto px-4 py-6">
+    <nav class="flex items-center justify-between">
+      <a href="#top" class="font-extrabold tracking-tight text-xl">Aditya<span class="text-blue-600">.</span></a>
+      <div class="hidden md:flex gap-6 text-sm">
+        <a href="#projects" class="hover:opacity-80">Projects</a>
+        <a href="#skills" class="hover:opacity-80">Skills</a>
+        <a href="#about" class="hover:opacity-80">About</a>
+        <a href="#contact" class="hover:opacity-80">Contact</a>
+      </div>
+      <a href="#contact" class="md:inline-flex hidden rounded-2xl bg-blue-600 px-4 py-2 text-white font-medium shadow-sm hover:shadow">Hire me</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+        Android & Cloud Engineer<br>
+        <span class="text-blue-600">Monash M.IT ’26</span>
+      </h1>
+      <p class="mt-4 text-neutral-700 text-lg">I build Android UIs with <strong>Jetpack Compose + Material 3</strong> and wire backends with <strong>AWS Serverless</strong> (Lambda, API Gateway, S3, DynamoDB). Open to <strong>part‑time internships</strong> (10–20 hrs/week, ≤48 hrs/fortnight).</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="chip border-neutral-300">Jetpack Compose</span>
+        <span class="chip border-neutral-300">Material 3</span>
+        <span class="chip border-neutral-300">Kotlin</span>
+        <span class="chip border-neutral-300">AWS Lambda</span>
+        <span class="chip border-neutral-300">API Gateway</span>
+        <span class="chip border-neutral-300">DynamoDB</span>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#projects" class="rounded-2xl bg-blue-600 px-5 py-3 text-white font-semibold shadow-sm hover:shadow">See projects</a>
+        <a href="resume.pdf" class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60" title="Add your PDF named resume.pdf at repo root">Download 1‑page résumé</a>
+        <a href="#contact" class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60">Contact</a>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="aspect-square rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-100 p-1 shadow-inner">
+        <div class="h-full w-full rounded-3xl bg-white/60 backdrop-blur grid place-items-center">
+          <!-- Simple avatar placeholder -->
+          <svg width="140" height="140" viewBox="0 0 100 100" class="opacity-80">
+            <circle cx="50" cy="34" r="18" fill="#c7d2fe"/>
+            <rect x="20" y="58" width="60" height="28" rx="14" fill="#a5b4fc"/>
+          </svg>
+          <p class="text-sm text-neutral-600 mt-4">(Drop a headshot later)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <main class="max-w-6xl mx-auto px-4">
+    <section id="projects" class="py-10">
+      <div class="flex items-end justify-between gap-4 mb-6">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Projects</h2>
+        <a href="https://github.com/coded-by-aditya" class="text-blue-600 hover:underline" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Project 1: BirdTag Case Study -->
+        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-bold">BirdTag — Serverless Media Tagging (Case Study)</h3>
+            <span class="text-xs rounded-full bg-indigo-50 text-indigo-700 px-2 py-1">AWS</span>
+          </div>
+          <p class="mt-3 text-neutral-700">Architecture + code samples for a serverless media tagging workflow: <em>Lambda</em> detection, <em>API Gateway</em> endpoints, <em>DynamoDB</em> metadata, and pre‑signed <em>S3</em> links. Includes endpoints like <code>/search-by-species</code>, <code>/get-original-url</code>, <code>/modify-tags</code>.</p>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm">
+            <span class="chip border-neutral-200">Lambda</span>
+            <span class="chip border-neutral-200">API Gateway</span>
+            <span class="chip border-neutral-200">DynamoDB</span>
+            <span class="chip border-neutral-200">S3</span>
+            <span class="chip border-neutral-200">Python</span>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a class="rounded-xl bg-neutral-900 text-white px-4 py-2 font-medium hover:bg-neutral-800" target="_blank" rel="noopener" href="https://github.com/coded-by-aditya/birdtag-case-study">Case Study Repo</a>
+            <button class="rounded-xl border border-neutral-300 px-4 py-2 font-medium" onclick="copyLink('https://github.com/coded-by-aditya/birdtag-case-study')">Copy link</button>
+          </div>
+        </article>
+
+        <!-- Project 2: Compose Starter -->
+        <article class="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xl font-bold">Compose Starter — M3 UI + Validation</h3>
+            <span class="text-xs rounded-full bg-emerald-50 text-emerald-700 px-2 py-1">Android</span>
+          </div>
+          <p class="mt-3 text-neutral-700">Tiny Android app showing lists/forms, a read‑only dropdown, and a password strength bar. Good taste > big code. Comes with notes on CI and release basics.</p>
+          <div class="mt-4 flex flex-wrap gap-2 text-sm">
+            <span class="chip border-neutral-200">Jetpack Compose</span>
+            <span class="chip border-neutral-200">Material 3</span>
+            <span class="chip border-neutral-200">Kotlin</span>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a class="rounded-xl bg-neutral-900 text-white px-4 py-2 font-medium hover:bg-neutral-800" target="_blank" rel="noopener" href="https://github.com/coded-by-aditya/compose-starter">Repo</a>
+            <button class="rounded-xl border border-neutral-300 px-4 py-2 font-medium" onclick="copyLink('https://github.com/coded-by-aditya/compose-starter')">Copy link</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-4">Skills</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="rounded-3xl border border-neutral-200 bg-white p-5">
+          <h3 class="font-semibold">Mobile</h3>
+          <p class="mt-2 text-neutral-700">Jetpack Compose, Material 3, Kotlin, basic observability & release pipeline concepts.</p>
+        </div>
+        <div class="rounded-3xl border border-neutral-200 bg-white p-5">
+          <h3 class="font-semibold">Cloud</h3>
+          <p class="mt-2 text-neutral-700">AWS Lambda, API Gateway, DynamoDB, S3, pre‑signed URLs, IaC/CI basics.</p>
+        </div>
+        <div class="rounded-3xl border border-neutral-200 bg-white p-5">
+          <h3 class="font-semibold">Data / BI</h3>
+          <p class="mt-2 text-neutral-700">Star schemas, simple reporting, Python/SQL for small ETL tasks (FIT5137).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold mb-4">About</h2>
+      <p class="text-neutral-700 leading-relaxed">
+        I’m Aditya Mehrotra, a Master of IT student at Monash (’26) based in Melbourne. I like building practical features with clean UI and lightweight backends.
+        I’m currently focused on Android with Jetpack Compose and exploring agentic AI patterns that can be wired into mobile clients.
+      </p>
+      <p class="text-neutral-700 leading-relaxed mt-3">
+        I’m available for <strong>part‑time internships</strong> and short paid trials (10–20 hrs/week, ≤48 hrs/fortnight). I’m happy to walk through code in a 60‑second screen recording.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-10">
+      <div class="rounded-3xl border border-neutral-200 bg-white p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
+        <p class="mt-2 text-neutral-700">Best way: email or LinkedIn. I reply within a day.</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a class="rounded-2xl bg-blue-600 text-white px-5 py-3 font-semibold hover:shadow" href="mailto:youremail@example.com" id="email-link">Email me</a>
+          <a class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://www.linkedin.com/in/your-link">LinkedIn</a>
+          <a class="rounded-2xl border border-neutral-300 px-5 py-3 font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://github.com/coded-by-aditya">GitHub</a>
+        </div>
+        <p class="text-sm text-neutral-500 mt-4">Tip: update the email/links above and add <code>resume.pdf</code> to the repo root.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-4 pb-10 text-sm text-neutral-500">
+    <div class="flex items-center justify-between">
+      <p>© <span id="year"></span> Aditya Mehrotra</p>
+      <div class="flex gap-4">
+        <a href="#top" class="hover:underline">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // copy helpers
+    function copyLink(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const msg = document.createElement('span');
+        msg.textContent = 'Copied!';
+        msg.className = 'ml-2 text-emerald-600';
+        const target = event.currentTarget;
+        target.parentElement.appendChild(msg);
+        setTimeout(() => msg.remove(), 1200);
+      });
+    }
+  </script>
+</body>
+</html>
