@@ -185,6 +185,10 @@
             <li><strong>Storage layout:</strong> S3 folders for <code>/images</code>, <code>/videos</code>, <code>/audios</code>, <code>/thumbnails</code>, <code>/models</code>, etc.</li>
           </ul>
 
+          <p class="text-xs sm:text-sm leading-relaxed mb-4" style="color: var(--text-muted)">
+            <strong>My role:</strong> Built the API & query layer—designed search, update, and delete endpoints behind Amazon API Gateway (Lambda + DynamoDB). Co-designed the AWS serverless architecture and contributed UI components on the React frontend.
+          </p>
+
           <div class="mb-4 flex flex-wrap gap-2">
             <span class="chip">Lambda</span>
             <span class="chip">API Gateway</span>
@@ -199,7 +203,47 @@
 
           <a class="inline-block rounded-xl bg-accent px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base text-white font-medium hover:opacity-90 transition"
             target="_blank" rel="noopener"
-            href="https://github.com/coded-by-aditya/birdtag-aws">GitHub</a>
+            href="https://github.com/coded-by-aditya/birdtag-aws">View Case Study</a>
+        </article>
+
+        <!-- Nestle-In -->
+        <article class="rounded-3xl card p-5 sm:p-6 shadow-sm hover:shadow-md transition">
+          <div class="flex items-start justify-between gap-4 mb-3">
+            <h3 class="text-lg sm:text-xl font-bold">Nestle-In - Chatbot Monorepo (Express + Serverless)</h3>
+            <span class="badge whitespace-nowrap">Monorepo</span>
+          </div>
+
+          <p class="text-sm sm:text-base leading-relaxed mb-4" style="color: var(--text-muted)">
+            Full-stack chatbot system with two deployment paths:
+            <strong>Node/Express + MongoDB</strong> and <strong>AWS Serverless</strong> (<strong>API Gateway</strong> + <strong>Lambda</strong> + <strong>DynamoDB</strong>).
+            Frontends are Vite + React with <strong>Cognito</strong> auth.
+          </p>
+
+          <ul class="text-sm sm:text-base leading-relaxed mb-4 list-disc pl-5" style="color: var(--text-muted)">
+            <li><strong>Apps:</strong> <code>backend</code> (Express/Mongo), <code>frontend</code> (API GW client), <code>mosaic-app</code> (UI for Express), <code>lambda</code> (Node handler)</li>
+            <li><strong>APIs:</strong> REST chat routes (<code>/chat/message</code>, <code>/chat/history/:chatId</code>, sessions CRUD) and serverless <code>POST /chat</code></li>
+            <li><strong>IaC:</strong> CloudFormation stack (DynamoDB with TTL + GSI on <code>sessionId</code>, Lambda role, API Gateway), ready to deploy</li>
+          </ul>
+
+          <p class="text-xs sm:text-sm leading-relaxed mb-4" style="color: var(--text-muted)">
+            <strong>My role:</strong> monorepo architecture, API contracts, CloudFormation, Lambda handler, and Cognito wiring.
+          </p>
+
+          <div class="mb-4 flex flex-wrap gap-2">
+            <span class="chip">Node.js 18</span>
+            <span class="chip">Express</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">React (Vite)</span>
+            <span class="chip">Cognito</span>
+            <span class="chip">API Gateway</span>
+            <span class="chip">Lambda</span>
+            <span class="chip">DynamoDB</span>
+            <span class="chip">CloudFormation</span>
+          </div>
+
+          <a class="inline-block rounded-xl bg-accent px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base text-white font-medium hover:opacity-90 transition"
+            target="_blank" rel="noopener"
+            href="https://github.com/coded-by-aditya/nestle-in">View Repo</a>
         </article>
       </div>
     </section>
