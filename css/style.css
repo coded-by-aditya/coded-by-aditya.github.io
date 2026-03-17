@@ -115,14 +115,13 @@ body {
   color: var(--text);
   text-decoration: none;
 }
-.logo-mark {
-  width: 28px; height: 28px;
-  background: linear-gradient(135deg, var(--accent), var(--purple));
-  border-radius: 7px;
-  display: grid;
-  place-items: center;
-  font-size: 13px;
+.logo-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
+  border: 1.5px solid var(--border);
 }
 .sidebar-ver {
   font-family: var(--mono);
@@ -252,12 +251,26 @@ html.light .nav-lnk.active {
   align-items: start;
 }
 .intro-left, .intro-right { min-width: 0; }
+.intro-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.intro-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+}
 .intro-left h1 {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.15;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .intro-tagline {
   font-family: var(--mono);
@@ -712,7 +725,7 @@ html.light .nav-lnk.active {
   align-items: center;
   gap: 8px;
 }
-.mob-title .logo-mark { width: 22px; height: 22px; font-size: 10px; border-radius: 5px; }
+.mob-title .logo-avatar { width: 26px; height: 26px; }
 .mob-bar-actions {
   display: flex;
   align-items: center;
