@@ -92,44 +92,38 @@ function initScrollSpy() {
 
 /* ── Theme toggle ────────────────────────────────────── */
 function initThemeToggle() {
-  const btn   = document.getElementById('theme-toggle');
-  const icon  = document.getElementById('theme-icon');
-  const label = document.getElementById('theme-label');
-  if (!btn) return;
+  const btn      = document.getElementById('theme-toggle');
+  const icon     = document.getElementById('theme-icon');
+  const label    = document.getElementById('theme-label');
+  const mobBtn   = document.getElementById('mob-theme-toggle');
 
   function syncUI() {
     const isLight = document.documentElement.classList.contains('light');
-    if (icon)  icon.textContent  = isLight ? '🌙' : '☀️';
-    if (label) label.textContent = isLight ? 'Dark mode' : 'Light mode';
+    if (icon)   icon.textContent   = isLight ? '🌙' : '☀️';
+    if (label)  label.textContent  = isLight ? 'Dark mode' : 'Light mode';
+    if (mobBtn) mobBtn.textContent = isLight ? '🌙' : '☀️';
   }
 
   syncUI(); // set correct state on load
 
-  btn.addEventListener('click', () => {
+  function toggle() {
     const isLight = document.documentElement.classList.toggle('light');
     try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch(_) {}
     syncUI();
-  });
+  }
+
+  btn    && btn.addEventListener('click', toggle);
+  mobBtn && mobBtn.addEventListener('click', toggle);
 }
 
-/* ── Mobile sidebar ──────────────────────────────────── */
+/* ── Close sidebar on nav link click (Bootstrap offcanvas) ── */
 function initMobileSidebar() {
-  const btn      = document.querySelector('.mob-menu-btn');
-  const sidebar  = document.querySelector('.sidebar');
-  const overlay  = document.querySelector('.sidebar-overlay');
-  const closeBtn = document.querySelector('.mob-close');
-
-  function open()  { sidebar.classList.add('open');  overlay.classList.add('open'); }
-  function close() { sidebar.classList.remove('open'); overlay.classList.remove('open'); }
-
-  btn     && btn.addEventListener('click', open);
-  closeBtn && closeBtn.addEventListener('click', close);
-  overlay && overlay.addEventListener('click', close);
-
-  // Close sidebar on nav link click (mobile)
   document.querySelectorAll('.nav-lnk').forEach(a => {
     a.addEventListener('click', () => {
-      if (window.innerWidth < 768) close();
+      const el = document.getElementById('sidebarNav');
+      if (!el) return;
+      const instance = bootstrap.Offcanvas.getInstance(el);
+      if (instance) instance.hide();
     });
   });
 }
