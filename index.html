@@ -3,432 +3,854 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aditya Mehrotra | Cloud & Backend Engineer</title>
-  <meta name="description" content="Aditya Mehrotra - Cloud & Backend (AWS Serverless, Python, CI/CD). Monash M.IT ’26. Open to part-time work or internshipss.">
-  <script>
-    (function() {
-      try {
-        const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if ((stored === 'dark') || (!stored && prefersDark)) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-      } catch (_) {}
-    })();
-  </script>
-  <meta property="og:title" content="Aditya Mehrotra | Cloud & Backend Engineer">
-  <meta property="og:description" content="Cloud & Backend (AWS Serverless, Python, CI/CD). Monash M.IT ’26. Open to part-time work or internships.">
+  <title>Aditya Mehrotra · Cloud & Backend Engineer</title>
+  <meta name="description" content="Cloud & Backend Engineer (AWS Serverless, Python, CI/CD). Monash M.IT '26, Melbourne. Open to part-time / internships.">
+  <meta property="og:title" content="Aditya Mehrotra · Cloud & Backend Engineer">
+  <meta property="og:description" content="AWS Serverless · Python · CI/CD · Monash M.IT '26 · Melbourne">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/headshot.jpeg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aditya Mehrotra | Cloud & Backend Engineer">
-  <meta name="twitter:description" content="Cloud & Backend (AWS Serverless, Python, CI/CD). Open to part-time work or internships.">
-  <meta name="twitter:image" content="assets/headshot.jpeg">
   <link rel="icon" href="assets/headshot.jpeg">
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function() {
+      try {
+        var s = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (s === 'light' || (!s && prefersLight)) {
+          document.documentElement.classList.add('light');
+        }
+      } catch(_) {}
+    })();
+  </script>
   <style>
-    /* Modern color palette with dark mode */
-    :root {
-      --bg:#FAFBFC;
-      --muted:#F1F3F5;
-      --accent:#0EA5E9;
-      --accent-hover:#0284C7;
-      --dark:#1A1A1A;
-      --card:#FFFFFF;
-      --border:rgba(0,0,0,0.08);
-      --text-muted:#6B7280;
-    }
-    html.dark {
-      --bg:#0F1419;
-      --muted:#1A1F2E;
-      --accent:#38BDF8;
-      --accent-hover:#0EA5E9;
-      --dark:#F9FAFB;
-      --card:#1A1F2E;
-      --border:rgba(255,255,255,0.1);
-      --text-muted:#9CA3AF;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--dark); }
-    /* Tailwind CDN doesn't compile @apply - plain CSS utilities */
-    .chip { display:inline-flex; align-items:center; border-radius:9999px; padding:0.25rem 0.75rem; font-size:0.875rem; line-height:1.25rem; border:1px solid var(--border); transition: all 0.2s ease; }
-    .chip:hover { background: var(--muted); }
-    .text-accent { color: var(--accent); }
-    .bg-accent { background-color: var(--accent); color:#fff; transition: background-color 0.2s ease; }
-    .bg-accent:hover { background-color: var(--accent-hover); }
-    .badge { display:inline-block; border-radius:9999px; padding:0.15rem 0.5rem; font-size:0.75rem; font-weight:600; background: var(--muted); color: var(--dark); }
-    .card { background: var(--card); border:1px solid var(--border); transition: all 0.3s ease; }
-
-    /* Toggle Switch */
-    .theme-toggle {
-      position: relative;
-      width: 52px;
-      height: 28px;
-      background: var(--muted);
-      border-radius: 9999px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      border: 1px solid var(--border);
-    }
-    .theme-toggle:hover { background: var(--border); }
-    .theme-toggle-slider {
-      position: absolute; top: 2px; left: 2px; width: 22px; height: 22px;
-      background: white; border-radius: 9999px; transition: transform 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
-    html.dark .theme-toggle-slider { transform: translateX(24px); background: #F59E0B; }
-    .theme-toggle-icon { position: absolute; top: 50%; transform: translateY(-50%); font-size: 14px; transition: opacity 0.2s ease; }
-    .theme-toggle-icon.sun { left: 6px; opacity: 1; }
-    .theme-toggle-icon.moon { right: 6px; opacity: 0.4; }
-    html.dark .theme-toggle-icon.sun { opacity: 0.4; }
-    html.dark .theme-toggle-icon.moon { opacity: 1; }
-
-    .auto-rows-fr {
-      grid-auto-rows: 1fr;
-    }
+    /* Fade-in utility */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.d1 { transition-delay: 0.1s; }
+    .fade-in.d2 { transition-delay: 0.2s; }
+    .fade-in.visible { opacity: 1; transform: none; }
   </style>
 </head>
 <body>
-  <!-- Header / Nav -->
-  <header class="sticky top-0 z-50 bg-white/60 dark:bg-black/40 backdrop-blur border-b" style="border-color: var(--border)">
-    <div class="max-w-6xl mx-auto px-4 py-4">
-      <nav class="flex items-center justify-between">
-        <a href="#top" class="font-extrabold tracking-tight text-xl">Aditya<span class="text-accent">.</span></a>
-        <div class="hidden md:flex gap-6 text-sm">
-          <a href="#projects" class="hover:opacity-80">Projects</a>
-          <!-- <a href="#offer" class="hover:opacity-80">What I Deliver</a> -->
-          <a href="#experience" class="hover:opacity-80">Experience</a>
-          <a href="#education" class="hover:opacity-80">Education</a>
-          <a href="#skills" class="hover:opacity-80">Skills</a>
-          <a href="#about" class="hover:opacity-80">About</a>
-          <a href="#contact" class="hover:opacity-80">Contact</a>
-        </div>
-        <div class="flex items-center gap-3">
-          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-            <span class="theme-toggle-icon sun">☀️</span>
-            <span class="theme-toggle-icon moon">🌙</span>
-            <div class="theme-toggle-slider"></div>
-          </button>
-          <a href="#contact" class="md:inline-flex hidden rounded-2xl bg-accent px-4 py-2 text-white font-medium shadow-sm hover:shadow">Hire me</a>
-        </div>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Hero -->
-  <section id="top" class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <div class="order-2 lg:order-1">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
-          Cloud & Backend Engineer<br>
-          <span class="text-accent">Monash M.IT ’26 · Melbourne</span>
-        </h1>
-        <p class="mt-4 text-base sm:text-lg leading-relaxed" style="color: var(--text-muted)">
-          I design reliable, small-footprint cloud services on <strong>AWS</strong> using <strong>Python</strong>, delivering well-structured APIs, robust authentication, and clear, maintainable documentation. I am a <strong>Full-Stack Engineer (Volunteer) at MOSAIC</strong> and formerly a <strong>Senior Integration Consultant at Darwinbox</strong>. I am seeking <strong>part-time work or an internship (10–20 hours per week)</strong> and am available to begin with a short paid trial.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-2 sm:gap-3">
-          <span class="chip">Python</span>
-          <!-- <span class="chip">FastAPI / Flask</span> -->
-          <span class="chip">AWS Lambda</span>
-          <span class="chip">API Gateway</span>
-          <span class="chip">DynamoDB</span>
-          <span class="chip">Docker</span>
-          <span class="chip">GitHub Actions</span>
+  <!-- ── Sidebar ─────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <a href="#intro" class="sidebar-logo">
+        <div class="logo-mark">⬡</div>
+        Aditya API
+      </a>
+      <div class="sidebar-ver">v1.0.0-rc · Melbourne</div>
+      <div class="avail-pill">
+        <span class="avail-dot"></span>
+        Available
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-grp">
+        <div class="nav-grp-label">Overview</div>
+        <a href="#intro"      class="nav-lnk active">Introduction</a>
+      </div>
+      <div class="nav-grp">
+        <div class="nav-grp-label">Endpoints</div>
+        <a href="#me"         class="nav-lnk"><span class="method get">GET</span>/me</a>
+        <a href="#experience" class="nav-lnk"><span class="method get">GET</span>/experience</a>
+        <a href="#projects"   class="nav-lnk"><span class="method get">GET</span>/projects</a>
+        <a href="#skills"     class="nav-lnk"><span class="method get">GET</span>/skills</a>
+        <a href="#education"  class="nav-lnk"><span class="method get">GET</span>/education</a>
+        <a href="#hire"       class="nav-lnk"><span class="method post">POST</span>/hire</a>
+      </div>
+      <div class="nav-grp">
+        <div class="nav-grp-label">Resources</div>
+        <a href="resume.pdf"  class="nav-lnk" target="_blank">↓ resume.pdf</a>
+        <a href="https://github.com/coded-by-aditya" class="nav-lnk" target="_blank" rel="noopener">github ↗</a>
+        <a href="https://www.linkedin.com/in/aditya-mehrotra-2a7a141a6/" class="nav-lnk" target="_blank" rel="noopener">linkedin ↗</a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle color theme">
+        <span id="theme-icon">☀️</span>
+        <span id="theme-label">Light mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── Mobile bar ────────────────────────────────────── -->
+  <div class="mob-bar">
+    <div class="mob-title">
+      <div class="logo-mark">⬡</div>
+      Aditya API
+    </div>
+    <button class="mob-menu-btn" aria-label="Open navigation">☰ Menu</button>
+  </div>
+  <div class="sidebar-overlay"></div>
+  <button class="mob-close" aria-label="Close navigation">✕</button>
+
+  <!-- ── Main ──────────────────────────────────────────── -->
+  <main class="main">
+
+    <!-- Introduction -->
+    <section id="intro" class="intro">
+      <div class="intro-left fade-in">
+        <h1>The Aditya API</h1>
+        <div class="intro-tagline"># Cloud &amp; Backend Engineer as a Service</div>
+        <div class="intro-body">
+          <p>
+            This API exposes a cloud &amp; backend engineer based in Melbourne. I build things on
+            AWS: mostly Lambda functions, API Gateway, DynamoDB. Been doing it long enough
+            to know where the sharp edges are.
+          </p>
+          <p>
+            Before the AWS stuff, I spent 3.5 years at <strong>Darwinbox</strong> building
+            integrations for 130+ enterprise clients across banking, automotive, and retail.
+            Now I'm finishing my <strong>M.IT at Monash</strong> and volunteering as a full-stack
+            engineer at <strong>MOSAIC</strong>.
+          </p>
+          <p>
+            Not looking for full-time right now. I've got 10–20 hours a week free and I'd
+            rather find something that actually fits. Happy to start with a small paid trial if
+            that's easier.
+          </p>
         </div>
-        <div class="mt-6 sm:mt-8 flex flex-wrap gap-3">
-          <a href="#projects" class="rounded-2xl bg-accent px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base text-white font-semibold shadow-sm hover:shadow">See projects</a>
-          <a href="resume.pdf" class="rounded-2xl border border-neutral-300 px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:bg-white/60" title="Add your PDF named resume.pdf at repo root">Download résumé</a>
-          <a href="#contact" class="rounded-2xl border border-neutral-300 px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:bg-white/60">Contact</a>
+        <div class="intro-meta">
+          <span class="meta-key">Base URL</span>
+          <span class="meta-val accent">coded-by-aditya.github.io</span>
+
+          <span class="meta-key">Status</span>
+          <span class="meta-val green">● available</span>
+
+          <span class="meta-key">Availability</span>
+          <span class="meta-val">10–20 hrs/week</span>
+
+          <span class="meta-key">Response time</span>
+          <span class="meta-val">&lt; 24 hours</span>
+
+          <span class="meta-key">Start date</span>
+          <span class="meta-val">immediately</span>
         </div>
       </div>
-      <div class="order-1 lg:order-2">
-        <div class="aspect-square max-w-md mx-auto lg:max-w-none rounded-3xl overflow-hidden shadow-lg">
+      <div class="intro-right fade-in d1">
+        <div class="code-block">
+          <div class="code-hd">
+            <span class="code-label">Quick look</span>
+            <span class="code-status ok">200 OK</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre class="code-pre"><code class="json-hl">{
+  "name": "Aditya Mehrotra",
+  "role": "Cloud & Backend Engineer",
+  "location": "Melbourne, AU",
+  "status": "available",
+  "availability": "10–20 hrs/week",
+  "open_to": [
+    "part-time",
+    "internship",
+    "paid-trial"
+  ],
+  "stack": [
+    "Python",
+    "AWS Lambda",
+    "API Gateway",
+    "DynamoDB",
+    "Docker",
+    "GitHub Actions"
+  ],
+  "education": "Monash M.IT, May 2026"
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- GET /me -->
+    <section id="me" class="ep">
+      <div class="ep-l fade-in">
+        <div class="ep-head">
+          <span class="method get">GET</span>
+          <code class="ep-path">/me</code>
+          <span class="ep-one">Core profile information</span>
+        </div>
+        <div class="ep-divider"></div>
+        <div class="ep-desc">
+          <p>
+            Returns the core object. Honestly the most important endpoint. If the response looks
+            like a fit, <a href="#hire">POST /hire</a> is right below.
+          </p>
+          <p>
+            I care about clean endpoints, reasonable error handling, and docs that don't lie.
+            If I build it, I can explain why it's structured the way it is.
+          </p>
+        </div>
+
+        <div class="photo-wrap" style="margin-top:20px">
           <img
             src="assets/headshot.jpeg"
-            alt="Portrait of Aditya Mehrotra"
-            class="h-full w-full object-cover rounded-3xl"
-            width="800" height="800" loading="eager" decoding="async" fetchpriority="high"
+            alt="Aditya Mehrotra"
+            width="400" height="400"
+            loading="eager" decoding="async" fetchpriority="high"
           />
+          <div class="photo-status">
+            <span style="width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;"></span>
+            online
+          </div>
         </div>
+
+        <div class="attr-title">Response fields</div>
+        <table class="attr-table">
+          <thead>
+            <tr>
+              <th>field</th>
+              <th>type</th>
+              <th>description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="attr-key">name</td>
+              <td class="attr-type">string</td>
+              <td>Full name</td>
+            </tr>
+            <tr>
+              <td class="attr-key">role</td>
+              <td class="attr-type">string</td>
+              <td>Current title and focus area</td>
+            </tr>
+            <tr>
+              <td class="attr-key">status</td>
+              <td class="attr-type">enum</td>
+              <td><code style="font-family:var(--mono);font-size:0.75rem;color:var(--syn-str)">"available"</code> | <code style="font-family:var(--mono);font-size:0.75rem;color:var(--syn-str)">"unavailable"</code></td>
+            </tr>
+            <tr>
+              <td class="attr-key">open_to_trial</td>
+              <td class="attr-type">boolean</td>
+              <td>Whether a short paid trial is on the table. Currently <code style="font-family:var(--mono);font-size:0.75rem;color:var(--syn-bool)">true</code></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <main class="max-w-6xl mx-auto px-4 sm:px-6">
-    <section id="projects" class="py-8 sm:py-12">
-      <div class="flex items-end justify-between gap-4 mb-6">
-        <h2 class="text-2xl sm:text-3xl font-extrabold">Projects</h2>
-        <a href="#contact" class="text-sm sm:text-base text-accent hover:underline">Contact →</a>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 auto-rows-fr">
-        <!-- BirdTag -->
-        <article class="rounded-3xl card p-5 sm:p-6 shadow-sm hover:shadow-md transition">
-          <div class="flex items-start justify-between gap-4 mb-3">
-            <h3 class="text-lg sm:text-xl font-bold">BirdTag - Serverless Media Tagging</h3>
-            <span class="badge whitespace-nowrap">Monash Project</span>
+      <div class="ep-r fade-in d1">
+        <div class="code-block">
+          <div class="code-hd">
+            <span class="code-label">Request</span>
+            <button class="copy-btn">Copy</button>
           </div>
-
-          <p class="text-sm sm:text-base leading-relaxed mb-4" style="color: var(--text-muted)">
-            Full-stack serverless system for storing and tagging bird media (images, video, audio) with AI.
-            Backend runs on <strong>API Gateway → Lambda → DynamoDB</strong> with <strong>S3</strong> storage and <strong>SNS</strong> email alerts; frontend is React with Cognito auth.
-          </p>
-
-          <ul class="text-sm sm:text-base leading-relaxed mb-4 list-disc pl-5" style="color: var(--text-muted)">
-            <li><strong>AI-powered detection:</strong> YOLOv8 (images/video) + BirdNET (audio)</li>
-            <li><strong>Endpoints:</strong> <code>/search-by-species</code>, <code>/get-original-url</code>, <code>/modify-tags</code>, <code>/get-media-matches-by-upload</code></li>
-            <li><strong>Data model:</strong> DynamoDB <code>BirdMediaMetadata</code> with <code>file_id</code>, <code>file_type</code>, <code>original_url</code>, <code>thumbnail_url</code>, <code>tags</code> map (species → count)</li>
-            <li><strong>Storage layout:</strong> S3 folders for <code>/images</code>, <code>/videos</code>, <code>/audios</code>, <code>/thumbnails</code>, <code>/models</code>, etc.</li>
-          </ul>
-
-          <p class="text-xs sm:text-sm leading-relaxed mb-4" style="color: var(--text-muted)">
-            <strong>My role:</strong> Built the API & query layer-designed search, update, and delete endpoints behind Amazon API Gateway (Lambda + DynamoDB). Co-designed the AWS serverless architecture and contributed UI components on the React frontend.
-          </p>
-
-          <div class="mb-4 flex flex-wrap gap-2">
-            <span class="chip">Lambda</span>
-            <span class="chip">API Gateway</span>
-            <span class="chip">DynamoDB</span>
-            <span class="chip">S3</span>
-            <span class="chip">SNS</span>
-            <span class="chip">Cognito</span>
-            <span class="chip">Python</span>
-            <span class="chip">YOLOv8</span>
-            <span class="chip">BirdNET</span>
-          </div>
-
-          <a class="inline-block rounded-xl bg-accent px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base text-white font-medium hover:opacity-90 transition"
-            target="_blank" rel="noopener"
-            href="https://github.com/coded-by-aditya/birdtag-aws">GitHub</a>
-        </article>
-
-        <!-- Nestle-In -->
-        <article class="rounded-3xl card p-5 sm:p-6 shadow-sm hover:shadow-md transition">
-          <div class="flex items-start justify-between gap-4 mb-3">
-            <h3 class="text-lg sm:text-xl font-bold">Nestle-In - Chatbot Monorepo (Express + Serverless)</h3>
-            <span class="badge whitespace-nowrap">MOSAIC</span>
-          </div>
-
-          <p class="text-sm sm:text-base leading-relaxed mb-4" style="color: var(--text-muted)">
-            Full-stack chatbot system with two deployment paths:
-            <strong>Node/Express + MongoDB</strong> and <strong>AWS Serverless</strong> (<strong>API Gateway</strong> + <strong>Lambda</strong> + <strong>DynamoDB</strong>).
-            Frontends are Vite + React with <strong>Cognito</strong> auth.
-          </p>
-
-          <ul class="text-sm sm:text-base leading-relaxed mb-4 list-disc pl-5" style="color: var(--text-muted)">
-            <li><strong>Apps:</strong> <code>backend</code> (Express/Mongo), <code>frontend</code> (API GW client), <code>mosaic-app</code> (UI for Express), <code>lambda</code> (Node handler)</li>
-            <li><strong>APIs:</strong> REST chat routes (<code>/chat/message</code>, <code>/chat/history/:chatId</code>, sessions CRUD) and serverless <code>POST /chat</code></li>
-            <li><strong>IaC:</strong> CloudFormation stack (DynamoDB with TTL + GSI on <code>sessionId</code>, Lambda role, API Gateway), ready to deploy</li>
-          </ul>
-
-          <p class="text-xs sm:text-sm leading-relaxed mb-4" style="color: var(--text-muted)">
-            <strong>My role:</strong> monorepo architecture, API contracts, Lambda handler, and Cognito wiring.
-          </p>
-
-          <div class="mb-4 flex flex-wrap gap-2">
-            <span class="chip">Node.js 18</span>
-            <span class="chip">Express</span>
-            <span class="chip">MongoDB</span>
-            <span class="chip">React (Vite)</span>
-            <span class="chip">Cognito</span>
-            <span class="chip">API Gateway</span>
-            <span class="chip">Lambda</span>
-            <span class="chip">DynamoDB</span>
-          </div>
-
-          <a class="inline-block rounded-xl bg-accent px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base text-white font-medium hover:opacity-90 transition"
-            target="_blank" rel="noopener"
-            href="https://github.com/Varunkashyap2303/monash_mosaic_nestleIn">GitHub</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- What I can deliver fast -->
-    <!-- <section id="offer" class="py-8 sm:py-12">
-      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 sm:mb-6">What I can deliver fast</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-        <article class="rounded-3xl card p-5 sm:p-6">
-          <h3 class="text-base sm:text-lg font-semibold">Serverless API POC (2–3 days)</h3>
-          <ul class="mt-2 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
-            <li>CRUD endpoints on API Gateway + Lambda</li>
-            <li>DynamoDB table + basic auth stub</li>
-            <li>README with how-to-run & next steps</li>
-          </ul>
-        </article>
-        <article class="rounded-3xl card p-5 sm:p-6">
-          <h3 class="text-base sm:text-lg font-semibold">CI & Quality Basics (1 day)</h3>
-          <ul class="mt-2 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
-            <li>GitHub Actions: lint, test, build</li>
-            <li>Pre-commit hooks and simple release notes</li>
-            <li>Badges + PR checklist for consistency</li>
-          </ul>
-        </article>
-      </div>
-    </section> -->
-
-    <!-- Experience -->
-    <section id="experience" class="py-8 sm:py-12">
-      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 sm:mb-6">Experience</h2>
-      <div class="space-y-4 sm:space-y-6">
-        <article class="rounded-3xl card p-5 sm:p-6 shadow-sm">
-          <div class="flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
-            <h3 class="text-lg sm:text-xl font-bold">Full Stack Engineer (Volunteer) - MOSAIC</h3>
-            <span class="badge text-xs sm:text-sm">Apr 2025 – Present · Melbourne</span>
-          </div>
-          <ul class="mt-3 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
-            <li>Built web apps with Vue.js; integrated AWS serverless (S3, Lambda, DynamoDB, API Gateway, Cognito) for secure, scalable solutions.</li>
-            <li>Set up CI/CD with GitHub Actions; containerized with Docker & Kubernetes, cutting release cycles ~40%.</li>
-            <li>Hardened auth with Cognito, IAM and role-based access; shipped in Agile/Scrum teams.</li>
-          </ul>
-        </article>
-
-        <article class="rounded-3xl card p-5 sm:p-6 shadow-sm">
-          <div class="flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
-            <h3 class="text-lg sm:text-xl font-bold">Senior Integration Consultant - Darwinbox</h3>
-            <span class="badge text-xs sm:text-sm">Apr 2024 – Jul 2024 · Jakarta</span>
-          </div>
-          <ul class="mt-3 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
-            <li>Led API integrations using Python & R; improved automation & interoperability, reducing downtime ~20%.</li>
-            <li>Automated data workflows; migrated legacy code to Python/R for maintainability and performance.</li>
-          </ul>
-
-          <div class="mt-4 flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
-            <h4 class="text-sm sm:text-base font-semibold">Integration Consultant - Darwinbox</h4>
-            <span class="badge text-xs sm:text-sm">Oct 2022 – Mar 2024</span>
-          </div>
-          <ul class="mt-2 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
-            <li>Developed and deployed API-based integrations across banking, automotive, retail, and sustainability sectors.</li>
-            <li>Optimized ETL pipelines (≈95% test accuracy); ran technical workshops boosting adoption ~75%.</li>
-          </ul>
-
-          <div class="mt-4 flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
-            <h4 class="text-sm sm:text-base font-semibold">Implementation & Account Management - Darwinbox</h4>
-            <span class="badge text-xs sm:text-sm">Feb 2021 – Jan 2023</span>
-          </div>
-          <ul class="mt-2 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
-            <li>Managed end-to-end deployment for 130+ clients; cut implementation time ~50%.</li>
-            <li>Built dashboards & reports (Power BI, Tableau); coordinated cross-functional launches.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="py-8 sm:py-12">
-      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 sm:mb-6">Education</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-        <article class="rounded-3xl card p-5 sm:p-6">
-          <div class="flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
-            <h3 class="text-lg sm:text-xl font-bold">Monash University</h3>
-            <span class="badge text-xs sm:text-sm">Melbourne, Australia</span>
-          </div>
-          <p class="mt-1 text-sm sm:text-base" style="color: var(--text-muted)">
-            <strong>Master of Information Technology</strong> - Expected May 2026
-          </p>
-          <ul class="mt-2 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
-            <li>Focus: Cloud, Backend, DevOps, Data</li>
-            <li>Activities: Research assistant (DevOps / edge devices)</li>
-          </ul>
-        </article>
-
-        <article class="rounded-3xl card p-5 sm:p-6">
-          <div class="flex flex-wrap items-baseline justify-between gap-2 sm:gap-3">
-            <h3 class="text-lg sm:text-xl font-bold">Manipal Institute of Technology</h3>
-            <span class="badge text-xs sm:text-sm">Manipal, India</span>
-          </div>
-          <p class="mt-1 text-sm sm:text-base" style="color: var(--text-muted)">
-            <strong>B.Tech, Information Technology</strong> - Sep 2021
-          </p>
-          <ul class="mt-2 text-sm sm:text-base list-disc pl-5" style="color: var(--text-muted)">
-            <li>Foundation in software engineering, data structures, networks</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="py-8 sm:py-12">
-      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 sm:mb-6">Skills</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        <div class="rounded-3xl card p-5 sm:p-6">
-          <h3 class="text-base sm:text-lg font-semibold">Backend & APIs</h3>
-          <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted)">Python (FastAPI/Flask), HTTP fundamentals, auth patterns, testing, small services that stay up.</p>
+          <pre class="code-pre"><code class="http-hl">GET /me HTTP/1.1
+Host: coded-by-aditya.github.io
+Accept: application/json</code></pre>
         </div>
-        <div class="rounded-3xl card p-5 sm:p-6">
-          <h3 class="text-base sm:text-lg font-semibold">Cloud</h3>
-          <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted)">AWS Lambda, API Gateway, DynamoDB, S3, pre-signed URLs, Docker, GitHub Actions.</p>
-        </div>
-        <div class="rounded-3xl card p-5 sm:p-6">
-          <h3 class="text-base sm:text-lg font-semibold">Data</h3>
-          <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted)">SQL & schema design, pandas, simple ETL notebooks, lightweight reporting.</p>
+        <div class="code-block">
+          <div class="code-hd">
+            <span class="code-label">Response</span>
+            <span class="code-status ok">200 OK</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre class="code-pre"><code class="json-hl">{
+  "name": "Aditya Mehrotra",
+  "role": "Cloud & Backend Engineer",
+  "location": "Melbourne, Australia",
+  "timezone": "AEDT (UTC+11)",
+  "status": "available",
+  "availability": "10–20 hrs/week",
+  "open_to_trial": true,
+  "open_to": [
+    "part-time",
+    "internship",
+    "paid-trial"
+  ],
+  "current_project": "M.IT at Monash University",
+  "expected_graduation": "May 2026",
+  "links": {
+    "github": "github.com/coded-by-aditya",
+    "linkedin": "linkedin.com/in/aditya-mehrotra-2a7a141a6",
+    "resume": "coded-by-aditya.github.io/resume.pdf"
+  }
+}</code></pre>
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="py-8 sm:py-12">
-      <h2 class="text-2xl sm:text-3xl font-extrabold mb-4">About</h2>
-      <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-muted)">
-        I’m Aditya Mehrotra, a Cloud & Backend engineer based in Melbourne. I like clear interfaces, boring-reliable services, and tight feedback loops.
-      </p>
-      <p class="text-sm sm:text-base leading-relaxed mt-3" style="color: var(--text-muted)">
-        I’ve shipped integrations and data workflows for enterprise clients, and I’m now focused on serverless patterns on AWS-small functions, simple data models, and CI that keeps teams moving.
-      </p>
-      <p class="text-sm sm:text-base leading-relaxed mt-3" style="color: var(--text-muted)">
-        I’m open to <strong>part-time work or internships</strong> (10–20 hrs/week). If it helps, I can start with a short paid trial to prove fit.
-      </p>
-    </section>
+    <!-- GET /experience -->
+    <section id="experience" class="ep">
+      <div class="ep-l fade-in">
+        <div class="ep-head">
+          <span class="method get">GET</span>
+          <code class="ep-path">/experience</code>
+          <span class="ep-one">Full work history</span>
+        </div>
+        <div class="ep-divider"></div>
+        <div class="ep-desc">
+          <p>
+            3.5+ years of building integrations and APIs for enterprise clients. The Darwinbox
+            years taught me what actually matters when you're rolling out software to 130+ clients:
+            <strong>real systems break in ways your staging environment never predicted</strong>.
+          </p>
+          <p>
+            Now I'm putting that into cloud-native work. Smaller services, cleaner contracts,
+            less drama.
+          </p>
+        </div>
 
-    <!-- Contact -->
-    <section id="contact" class="py-8 sm:py-12">
-      <div class="rounded-3xl card p-5 sm:p-6 lg:p-8">
-        <h2 class="text-2xl sm:text-3xl font-extrabold">Contact</h2>
-        <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted)">Best way: email or LinkedIn. I reply within a day.</p>
-        <p class="mt-2 text-sm sm:text-base" style="color: var(--text-muted)">Keen to chat? I’m happy to send a 60-sec walkthrough or do a tiny trial task.</p>
-        <div class="mt-5 flex flex-wrap gap-3">
-          <a class="rounded-2xl bg-accent text-white px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:shadow" href="mailto:mehrotra.aditya16@outlook.com" id="email-link">Email me</a>
-          <a class="rounded-2xl border border-neutral-300 px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://www.linkedin.com/in/aditya-mehrotra-2a7a141a6/">LinkedIn</a>
-          <a class="rounded-2xl border border-neutral-300 px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold hover:bg-white/60" target="_blank" rel="noopener" href="https://github.com/coded-by-aditya">GitHub</a>
+        <div class="tl">
+          <div class="tl-item">
+            <div class="tl-dot-col">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-company">MOSAIC · Melbourne</div>
+              <div class="tl-role">Full Stack Engineer (Volunteer)</div>
+              <div class="tl-date">Apr 2025 – Present</div>
+              <ul class="tl-bullets">
+                <li>Vue.js web apps + AWS serverless backend (Lambda, DynamoDB, S3, API Gateway, Cognito)</li>
+                <li>GitHub Actions CI/CD; cut release cycles by ~40%</li>
+                <li>Hardened auth with Cognito, IAM, and role-based access</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot-col">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-company">Darwinbox · Jakarta</div>
+              <div class="tl-role">Senior Integration Consultant</div>
+              <div class="tl-date">Apr 2024 – Jul 2024</div>
+              <ul class="tl-bullets">
+                <li>Led API integrations with Python &amp; R; reduced downtime ~20%</li>
+                <li>Migrated legacy workflows; improved maintainability and performance</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot-col">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-company">Darwinbox</div>
+              <div class="tl-role">Integration Consultant</div>
+              <div class="tl-date">Oct 2022 – Mar 2024</div>
+              <ul class="tl-bullets">
+                <li>API integrations across banking, automotive, retail, sustainability</li>
+                <li>ETL pipelines at ~95% test accuracy</li>
+                <li>Technical workshops that boosted client adoption ~75%</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot-col">
+              <div class="tl-dot"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-company">Darwinbox</div>
+              <div class="tl-role">Implementation &amp; Account Management</div>
+              <div class="tl-date">Feb 2021 – Jan 2023</div>
+              <ul class="tl-bullets">
+                <li>End-to-end deployments for 130+ clients; cut implementation time ~50%</li>
+                <li>Power BI &amp; Tableau dashboards; cross-functional launch coordination</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ep-r fade-in d1">
+        <div class="code-block">
+          <div class="code-hd">
+            <span class="code-label">Response</span>
+            <span class="code-status ok">200 OK</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre class="code-pre"><code class="json-hl">{
+  "total_years": 3.5,
+  "positions": [
+    {
+      "company": "MOSAIC",
+      "role": "Full Stack Engineer (Volunteer)",
+      "location": "Melbourne, AU",
+      "from": "2025-04",
+      "to": "present",
+      "stack": [
+        "Vue.js", "AWS Lambda", "DynamoDB",
+        "S3", "API Gateway", "Cognito",
+        "Docker", "Kubernetes", "GitHub Actions"
+      ],
+      "impact": [
+        "~40% reduction in release cycles",
+        "Hardened auth with Cognito + IAM"
+      ]
+    },
+    {
+      "company": "Darwinbox",
+      "location": "Jakarta, ID",
+      "roles": [
+        {
+          "title": "Senior Integration Consultant",
+          "from": "2024-04", "to": "2024-07",
+          "impact": [
+            "~20% downtime reduction",
+            "Legacy migration to Python/R"
+          ]
+        },
+        {
+          "title": "Integration Consultant",
+          "from": "2022-10", "to": "2024-03",
+          "impact": [
+            "ETL pipelines at ~95% accuracy",
+            "Workshops boosting adoption ~75%"
+          ]
+        },
+        {
+          "title": "Implementation & Account Mgmt",
+          "from": "2021-02", "to": "2023-01",
+          "impact": [
+            "130+ client deployments",
+            "~50% implementation time reduction"
+          ]
+        }
+      ]
+    }
+  ]
+}</code></pre>
         </div>
       </div>
     </section>
+
+    <!-- GET /projects -->
+    <section id="projects" class="ep">
+      <div class="ep-l fade-in">
+        <div class="ep-head">
+          <span class="method get">GET</span>
+          <code class="ep-path">/projects</code>
+          <span class="ep-one">Featured work</span>
+        </div>
+        <div class="ep-divider"></div>
+        <div class="ep-desc">
+          <p>
+            Both are real systems, not tutorial-following. The AWS architecture decisions
+            are mine. That's the part I'm most proud of.
+          </p>
+        </div>
+
+        <div class="proj-cards">
+          <div class="proj-card">
+            <div class="proj-name">
+              BirdTag
+              <span class="proj-ctx">Monash Project</span>
+            </div>
+            <div class="proj-desc">
+              Serverless system for storing and AI-tagging bird media (images, video, audio).
+              I built the API and query layer: search, update, and delete endpoints behind
+              API Gateway + Lambda + DynamoDB. Co-designed the architecture and contributed
+              React UI components.
+            </div>
+            <div class="proj-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Lambda</span>
+              <span class="tag">API Gateway</span>
+              <span class="tag">DynamoDB</span>
+              <span class="tag">S3</span>
+              <span class="tag">SNS</span>
+              <span class="tag">Cognito</span>
+              <span class="tag">YOLOv8</span>
+              <span class="tag">BirdNET</span>
+            </div>
+            <a href="https://github.com/coded-by-aditya/birdtag-aws" class="proj-link" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              github.com/coded-by-aditya/birdtag-aws
+            </a>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-name">
+              Nestle-In
+              <span class="proj-ctx">MOSAIC</span>
+            </div>
+            <div class="proj-desc">
+              Chatbot monorepo with two deployment paths: Node/Express + MongoDB, and
+              a full AWS Serverless stack. I did the monorepo architecture, API contracts,
+              Lambda handler, and Cognito wiring. CloudFormation-managed infrastructure
+              (DynamoDB with TTL + GSI, Lambda IAM role, API Gateway).
+            </div>
+            <div class="proj-tags">
+              <span class="tag">Node.js 18</span>
+              <span class="tag">Express</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">React (Vite)</span>
+              <span class="tag">Lambda</span>
+              <span class="tag">DynamoDB</span>
+              <span class="tag">CloudFormation</span>
+              <span class="tag">Cognito</span>
+            </div>
+            <a href="https://github.com/Varunkashyap2303/monash_mosaic_nestleIn" class="proj-link" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              github.com/Varunkashyap2303/monash_mosaic_nestleIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="ep-r fade-in d1">
+        <div class="code-block">
+          <div class="code-hd">
+            <span class="code-label">Response</span>
+            <span class="code-status ok">200 OK</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre class="code-pre"><code class="json-hl">{
+  "projects": [
+    {
+      "name": "BirdTag",
+      "context": "Monash University",
+      "tagline": "Serverless AI media tagging",
+      "architecture": "API GW → Lambda → DynamoDB",
+      "storage": "S3 (images/video/audio/thumbnails)",
+      "ml": ["YOLOv8", "BirdNET"],
+      "my_role": [
+        "API & query layer design",
+        "AWS serverless architecture",
+        "React UI components"
+      ],
+      "github": "github.com/coded-by-aditya/birdtag-aws"
+    },
+    {
+      "name": "Nestle-In",
+      "context": "MOSAIC volunteer",
+      "tagline": "Chatbot monorepo, dual deployment",
+      "deployment_options": [
+        "Node/Express + MongoDB",
+        "AWS Lambda + DynamoDB"
+      ],
+      "infra": "CloudFormation (DynamoDB TTL+GSI, Lambda IAM, API GW)",
+      "my_role": [
+        "Monorepo architecture",
+        "API contracts",
+        "Lambda handler",
+        "Cognito wiring"
+      ]
+    }
+  ]
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- GET /skills -->
+    <section id="skills" class="ep">
+      <div class="ep-l fade-in">
+        <div class="ep-head">
+          <span class="method get">GET</span>
+          <code class="ep-path">/skills</code>
+          <span class="ep-one">Technical capabilities</span>
+        </div>
+        <div class="ep-divider"></div>
+        <div class="ep-desc">
+          <p>
+            Backend and cloud are the main thing. I know the AWS serverless stack well.
+            I've touched enough frontend to be useful there too, but I'm not going to pretend
+            I'm a React specialist.
+          </p>
+        </div>
+
+        <div class="skill-grp">
+          <div class="skill-grp-name">Backend &amp; APIs</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">REST</span>
+          </div>
+        </div>
+
+        <div class="skill-grp">
+          <div class="skill-grp-name">Cloud &amp; Infrastructure</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS Lambda</span>
+            <span class="skill-tag">API Gateway</span>
+            <span class="skill-tag">DynamoDB</span>
+            <span class="skill-tag">S3</span>
+            <span class="skill-tag">Cognito</span>
+            <span class="skill-tag">SNS</span>
+            <span class="skill-tag">CloudFormation</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="skill-grp">
+          <div class="skill-grp-name">Data</div>
+          <div class="skill-tags">
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">pandas</span>
+            <span class="skill-tag">ETL</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Tableau</span>
+          </div>
+        </div>
+
+        <div class="skill-grp">
+          <div class="skill-grp-name">Frontend (supporting role)</div>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">Vite</span>
+          </div>
+        </div>
+      </div>
+      <div class="ep-r fade-in d1">
+        <div class="code-block">
+          <div class="code-hd">
+            <span class="code-label">Response</span>
+            <span class="code-status ok">200 OK</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre class="code-pre"><code class="json-hl">{
+  "backend": {
+    "languages": ["Python", "JavaScript", "Node.js"],
+    "frameworks": ["FastAPI", "Flask", "Express"],
+    "patterns": [
+      "REST API design",
+      "Auth (Cognito, IAM, JWT)",
+      "Testing",
+      "Small reliable services"
+    ]
+  },
+  "cloud": {
+    "provider": "AWS",
+    "services": [
+      "Lambda", "API Gateway", "DynamoDB",
+      "S3", "Cognito", "SNS", "CloudFormation"
+    ],
+    "tools": ["Docker", "Kubernetes", "GitHub Actions"]
+  },
+  "data": {
+    "databases": ["DynamoDB", "MongoDB", "SQL"],
+    "tools": ["pandas", "Power BI", "Tableau"],
+    "patterns": ["ETL", "Schema design"]
+  },
+  "frontend": {
+    "note": "Supporting role, not the main thing",
+    "frameworks": ["React", "Vue.js", "Vite"]
+  }
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- GET /education -->
+    <section id="education" class="ep">
+      <div class="ep-l fade-in">
+        <div class="ep-head">
+          <span class="method get">GET</span>
+          <code class="ep-path">/education</code>
+          <span class="ep-one">Academic background</span>
+        </div>
+        <div class="ep-divider"></div>
+        <div class="ep-desc">
+          <p>
+            Master's focused on cloud, DevOps, and distributed systems. The academic side
+            of what I'm building in practice. Also doing a research assistant gig on
+            DevOps for edge devices.
+          </p>
+        </div>
+
+        <div class="tl" style="margin-top:20px">
+          <div class="tl-item">
+            <div class="tl-dot-col">
+              <div class="tl-dot"></div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-company">Monash University · Melbourne, AU</div>
+              <div class="tl-role">Master of Information Technology</div>
+              <div class="tl-date">Expected May 2026</div>
+              <ul class="tl-bullets">
+                <li>Focus: Cloud, Backend, DevOps, Data</li>
+                <li>Research assistant: DevOps / edge devices</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot-col">
+              <div class="tl-dot"></div>
+            </div>
+            <div class="tl-body">
+              <div class="tl-company">Manipal Institute of Technology · Manipal, IN</div>
+              <div class="tl-role">B.Tech, Information Technology</div>
+              <div class="tl-date">Sep 2021</div>
+              <ul class="tl-bullets">
+                <li>Software engineering, data structures, networks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ep-r fade-in d1">
+        <div class="code-block">
+          <div class="code-hd">
+            <span class="code-label">Response</span>
+            <span class="code-status ok">200 OK</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre class="code-pre"><code class="json-hl">{
+  "degrees": [
+    {
+      "institution": "Monash University",
+      "degree": "Master of Information Technology",
+      "location": "Melbourne, AU",
+      "status": "in-progress",
+      "expected": "2026-05",
+      "focus": ["Cloud", "Backend", "DevOps", "Data"],
+      "extras": ["Research assistant: DevOps / edge devices"]
+    },
+    {
+      "institution": "Manipal Institute of Technology",
+      "degree": "B.Tech, Information Technology",
+      "location": "Manipal, IN",
+      "graduated": "2021-09"
+    }
+  ]
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- POST /hire -->
+    <section id="hire" class="ep">
+      <div class="ep-l fade-in">
+        <div class="ep-head">
+          <span class="method post">POST</span>
+          <code class="ep-path">/hire</code>
+          <span class="ep-one">Start a conversation</span>
+        </div>
+        <div class="ep-divider"></div>
+        <div class="ep-desc">
+          <p>
+            Email is the fastest path. I check it daily and usually reply same day,
+            worst case next morning.
+          </p>
+          <p>
+            I can put together a short video walkthrough of my work, or take on a small
+            paid task first if that helps. No need for a polished pitch.
+            A rough "here's what we're building" is enough.
+          </p>
+        </div>
+
+        <div class="attr-title">Request body</div>
+        <table class="attr-table">
+          <thead>
+            <tr><th>field</th><th>type</th><th>description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="attr-key">message</td>
+              <td class="attr-type">string</td>
+              <td>What you're working on (rough is fine)</td>
+            </tr>
+            <tr>
+              <td class="attr-key">hours_per_week</td>
+              <td class="attr-type">number</td>
+              <td>Anything in the 10–20 range works</td>
+            </tr>
+            <tr>
+              <td class="attr-key">start_soon</td>
+              <td class="attr-type">boolean</td>
+              <td>Can start immediately, trial available</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="contact-opts">
+          <a href="mailto:mehrotra.aditya16@outlook.com" class="contact-opt">
+            <span class="contact-opt-icon">✉️</span>
+            <div>
+              <div class="contact-opt-label">Email</div>
+              <div class="contact-opt-val">mehrotra.aditya16@outlook.com</div>
+            </div>
+            <span class="contact-opt-arr">→</span>
+          </a>
+          <a href="https://www.linkedin.com/in/aditya-mehrotra-2a7a141a6/" class="contact-opt" target="_blank" rel="noopener">
+            <span class="contact-opt-icon">💼</span>
+            <div>
+              <div class="contact-opt-label">LinkedIn</div>
+              <div class="contact-opt-val">aditya-mehrotra-2a7a141a6</div>
+            </div>
+            <span class="contact-opt-arr">↗</span>
+          </a>
+          <a href="https://github.com/coded-by-aditya" class="contact-opt" target="_blank" rel="noopener">
+            <span class="contact-opt-icon">⌥</span>
+            <div>
+              <div class="contact-opt-label">GitHub</div>
+              <div class="contact-opt-val">github.com/coded-by-aditya</div>
+            </div>
+            <span class="contact-opt-arr">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="ep-r fade-in d1">
+        <div class="code-block">
+          <div class="code-hd">
+            <span class="code-label">Request body</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre class="code-pre"><code class="json-hl">{
+  "message": "Hey, we're building X and need help with Y",
+  "hours_per_week": 15,
+  "start_soon": true,
+  "want_trial_first": false
+}</code></pre>
+        </div>
+        <div class="code-block">
+          <div class="code-hd">
+            <span class="code-label">Response</span>
+            <span class="code-status post">201 Created</span>
+            <button class="copy-btn">Copy</button>
+          </div>
+          <pre class="code-pre"><code class="json-hl">{
+  "status": "message_received",
+  "response_time": "< 24 hours",
+  "contact": {
+    "email": "mehrotra.aditya16@outlook.com",
+    "linkedin": "linkedin.com/in/aditya-mehrotra-2a7a141a6",
+    "github": "github.com/coded-by-aditya"
+  },
+  "next_steps": [
+    "I'll reply within a day",
+    "Happy to send a 60-sec video walkthrough",
+    "Open to a small paid trial task first"
+  ],
+  "trial_available": true,
+  "rate_limits": {
+    "availability": "10–20 hrs/week",
+    "start_date": "immediately"
+  }
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding:24px 64px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <span style="font-family:var(--mono);font-size:0.75rem;color:var(--text-muted)">
+        © <span id="year"></span> Aditya Mehrotra · coded-by-aditya.github.io
+      </span>
+      <span style="font-family:var(--mono);font-size:0.6875rem;color:var(--text-muted)">
+        # built with HTML, CSS, JS. no framework
+      </span>
+    </footer>
+
   </main>
 
-  <footer class="max-w-6xl mx-auto px-4 sm:px-6 pb-8 sm:pb-10 text-xs sm:text-sm" style="color: var(--text-muted)">
-    <div class="flex flex-wrap items-center justify-between gap-4">
-      <p>© <span id="year"></span> Aditya Mehrotra</p>
-      <div class="flex gap-4">
-        <a href="#top" class="hover:underline">Back to top</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    (function() {
-      const btn = document.getElementById('theme-toggle');
-      if (!btn) return;
-      function setTheme(mode) {
-        if (mode === 'dark') {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-        try { localStorage.setItem('theme', mode); } catch (_) {}
-      }
-      btn.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.contains('dark');
-        setTheme(isDark ? 'light' : 'dark');
-      });
-    })();
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
