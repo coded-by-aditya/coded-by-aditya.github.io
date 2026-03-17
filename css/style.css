@@ -234,7 +234,7 @@ html.light .nav-lnk.active {
   text-transform: uppercase;
   font-family: var(--mono);
   flex-shrink: 0;
-  width: 32px;
+  white-space: nowrap;
   text-align: center;
 }
 .method.get    { background: var(--get-bg);    color: var(--get); }
@@ -252,18 +252,7 @@ html.light .nav-lnk.active {
 }
 .intro-left, .intro-right { min-width: 0; }
 .intro-heading {
-  display: flex;
-  align-items: center;
-  gap: 16px;
   margin-bottom: 20px;
-}
-.intro-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 2px solid var(--border);
 }
 .intro-left h1 {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
