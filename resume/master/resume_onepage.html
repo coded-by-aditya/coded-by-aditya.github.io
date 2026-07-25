@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aditya Mehrotra - Resume</title>
+<style>
+  @page { size: Letter; margin: 0.5in 0.6in; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Helvetica Neue", Calibri, Arial, sans-serif;
+    font-size: 9pt;
+    line-height: 1.07;
+    color: #000;
+    margin: 0;
+  }
+  .name {
+    font-size: 15pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 2pt 0;
+  }
+  .contact {
+    font-size: 9pt;
+    text-align: center;
+    margin: 0;
+  }
+  .contact a { color: #0563C1; }
+  h2 {
+    font-size: 10.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2pt;
+    margin: 6pt 0 2pt 0;
+    padding-bottom: 1pt;
+    border-bottom: 0.75pt solid #000;
+  }
+  .summary { margin: 0; text-align: justify; }
+  .skills p { margin: 1.5pt 0 0 0; }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 4.5pt 0 0 0;
+  }
+  .row .dates { font-style: italic; white-space: nowrap; padding-left: 12pt; }
+  .role { font-style: italic; margin: 0; }
+  .blurb { font-size: 8.5pt; font-style: italic; margin: 0; }
+  ul { margin: 1pt 0 0 0; padding-left: 13pt; }
+  li { margin: 0 0 0.5pt 0; }
+  .proj { margin: 4.5pt 0 0 0; }
+  .proj .tech { font-size: 8.5pt; font-style: italic; }
+  .edu { margin: 3.5pt 0 0 0; }
+  .edu .degree { font-style: italic; }
+</style>
+</head>
+<body>
+
+<p class="name">ADITYA MEHROTRA</p>
+<p class="contact">Melbourne, Australia&nbsp; |&nbsp; +61 478 916 329&nbsp; |&nbsp; mehrotra.aditya16@outlook.com&nbsp; |&nbsp; <a href="https://linkedin.com/in/aditya-mehrotra-mit">LinkedIn</a>&nbsp; |&nbsp; <a href="https://github.com/coded-by-aditya">GitHub</a></p>
+
+<h2>Professional Summary</h2>
+<p class="summary">Cloud and Backend Engineer with 3+ years building API-driven systems across enterprise environments. Hands-on with AWS serverless (Lambda, API Gateway, DynamoDB, S3, Cognito), Terraform, and Python. Cut production downtime by 20%, hit 95% integration accuracy, and shipped across 130+ client environments.</p>
+
+<h2>Core Skills</h2>
+<div class="skills">
+  <p><b>Cloud &amp; Infrastructure:</b> AWS (Lambda, API Gateway, DynamoDB, S3, Cognito, IAM, SNS) | Terraform | IaC | Serverless</p>
+  <p><b>Backend &amp; APIs:</b> Python | REST API design | OAuth 2.0 / SSO | ETL pipelines | SQL | Postman</p>
+  <p><b>Tools &amp; Delivery:</b> Git / GitHub | GitHub Actions | Docker | Vue.js | JavaScript</p>
+</div>
+
+<h2>Professional Experience</h2>
+
+<div class="row"><span><b>CFive AI</b> &ndash; Melbourne, Australia</span><span class="dates">Mar 2026 &ndash; Present</span></div>
+<p class="role">Cloud Integration Engineer</p>
+<p class="blurb">AI telephony startup building an intelligent voice receptionist platform for SMBs, integrating Twilio, VAPI, and CRM APIs.</p>
+<ul>
+  <li>Leading the migration of CFive's platform to AWS, scoping the target cloud architecture and moving core services off the existing system</li>
+  <li>Diagnosed and fixed production failures in an AI telephony system (Twilio, VAPI, CRM APIs) across live client environments</li>
+  <li>Wrote and tuned the prompts behind an AI voice receptionist and built call-handling workflows for after-hours coverage, missed-call capture, and escalation, cutting mishandled calls across client deployments</li>
+</ul>
+
+<div class="row"><span><b>MOSAIC (Monash Students for AI with Communities)</b> &ndash; Melbourne, Australia</span><span class="dates">Apr 2025 &ndash; Present</span></div>
+<p class="role">Cloud Engineer (Volunteer)</p>
+<p class="blurb">Student-run organisation at Monash University building AI-powered tools for community impact.</p>
+<ul>
+  <li>Deployed a serverless chat API using AWS API Gateway, Lambda, and DynamoDB (with TTL and GSI), provisioned end-to-end via CloudFormation with scoped IAM roles</li>
+  <li>Created an interactive Mapbox GL map with real-time GeoJSON injection, parsing CSV data into country-level markers with hover and click interaction</li>
+</ul>
+
+<div class="row"><span><b>Darwinbox</b> &ndash; Jakarta, Indonesia</span><span class="dates">Feb 2021 &ndash; Jul 2024</span></div>
+<p class="role">Senior Integration Engineer / Integration Engineer</p>
+<p class="blurb">Enterprise HR and payroll SaaS platform serving 700+ companies across Southeast Asia, with deep integrations across banking, retail, and manufacturing sectors.</p>
+<ul>
+  <li>Designed and delivered REST API and ETL integrations using Python and R for enterprise clients across banking, automotive, retail, and sustainability sectors</li>
+  <li>Cut integration-related system downtime by 20% and achieved 95% integration accuracy through rigorous API testing and systematic debugging</li>
+  <li>Automated payroll and HR data pipelines across Singapore, Malaysia, Philippines, and Indonesia, replacing manual processes with scheduled REST API connectors</li>
+  <li>Delivered end-to-end implementations for 130+ clients, cutting timelines from 90 to 45 days through reusable templates and automated configuration</li>
+</ul>
+
+<h2>Projects</h2>
+
+<p class="proj"><b>ShieldWalk &ndash; Women's Safety Navigation App</b><span class="tech">&nbsp; |&nbsp; Monash FIT5120 | Vue 3 | AWS Lambda (x15) | API Gateway | PostgreSQL RDS | Terraform | GitHub Actions | Groq / Llama 3.3 70B | Capacitor (Android)</span></p>
+<ul>
+  <li>Designed a self-registering Terraform IaC system using fileset-based auto-discovery, provisioning 15 Lambda functions, API Gateway routes, and CloudWatch log groups via a single for_each block with fail-fast validation at plan time</li>
+  <li>Established a GitOps CI/CD pipeline with OIDC authentication, per-developer ephemeral AWS environments via Terraform workspaces, and automatic teardown on PR merge</li>
+  <li>Developed real-time off-route deviation detection with automatic return-path calculation, turn-by-turn push notifications, and arrival detection that chains into a post-walk reflection flow to adaptively learn user comfort preferences</li>
+</ul>
+
+<p class="proj"><b>BirdTag &ndash; Serverless Media Tagging Platform</b><span class="tech">&nbsp; |&nbsp; github.com/coded-by-aditya/birdtag-aws | AWS Lambda | API Gateway | DynamoDB | S3 | SNS | Cognito</span></p>
+<ul>
+  <li>Developed a serverless media tagging system with event-driven SNS email alerts, a REST API layer with optimised DynamoDB access patterns, and user authentication via Amazon Cognito</li>
+  <li>Designed REST API endpoints (search, update, delete) and optimised DynamoDB access patterns for fast metadata retrieval and updates</li>
+  <li>Stored and served media files via S3 with pre-signed URLs, keeping Lambda functions stateless and file handling out of the API layer</li>
+</ul>
+
+<h2>Education</h2>
+<div class="edu">
+  <div class="row" style="margin:0"><span><b>Monash University</b> &ndash; Melbourne, Australia</span><span class="dates">2026</span></div>
+  <p class="degree">Master of Information Technology | WAM: 82% | GPA: 3.68/4</p>
+</div>
+<div class="edu">
+  <div class="row" style="margin:0"><span><b>Manipal Institute of Technology</b> &ndash; Manipal, India</span><span class="dates">2021</span></div>
+  <p class="degree">Bachelor of Technology &ndash; Information Technology</p>
+</div>
+
+</body>
+</html>

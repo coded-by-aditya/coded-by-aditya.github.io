@@ -1,0 +1,14 @@
+node_modules/
+.env
+
+# macOS
+.DS_Store
+
+# Private career notes. This repo is public, keep these local only.
+CLAUDE.md
+CONTEXT.md
+ROADMAP.md
+outreach/
+books/
+
+.claude/
