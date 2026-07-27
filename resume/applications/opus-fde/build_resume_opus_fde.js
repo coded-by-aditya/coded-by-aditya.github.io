@@ -142,7 +142,7 @@ const doc = new Document({
 
       sectionHeader("PROFESSIONAL SUMMARY"),
       plain(
-        "Backend and integration engineer with 3+ years working directly with enterprise clients to scope, build, and deliver API-driven solutions. Currently at an AI telephony startup, leading an AWS migration and tuning the prompts behind a production voice agent. Uses AI tools like Claude Code as a normal part of day-to-day work. Cut production downtime 20%, held 95% integration accuracy, and delivered across 130+ client environments.",
+        "Backend and integration engineer with 3+ years working directly with enterprise clients to scope, build, and deliver API-driven solutions. Currently at an AI telephony startup, leading an AWS migration and tuning the prompts behind a production voice agent. Uses AI tools like Claude Code as a normal part of day-to-day work. Cut production downtime 20%, held 95% integration accuracy, and delivered across enterprise client environments.",
         { before: 50, after: 0 }
       ),
 
@@ -171,7 +171,7 @@ const doc = new Document({
       bullet("Designed and delivered REST API and ETL integrations using Python and R for enterprise clients across banking, automotive, retail, and sustainability sectors"),
       bullet("Cut integration-related system downtime by 20% and achieved 95% integration accuracy through rigorous API testing and systematic debugging"),
       bullet("Built payroll and HR data pipelines across Singapore, Malaysia, Philippines, and Indonesia, replacing manual processes with scheduled REST API connectors"),
-      bullet("Delivered end-to-end implementations for 130+ clients, cutting timelines from 90 to 45 days through reusable templates and automated configuration"),
+      bullet("Delivered end-to-end implementations for enterprise clients, cutting timelines from 90 to 45 days through reusable templates and automated configuration"),
       bullet("Led technical enablement workshops for client engineering teams, increasing platform adoption by 75% and reducing tier-1 support volume"),
 
       sectionHeader("PROJECTS"),

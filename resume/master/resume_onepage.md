@@ -6,7 +6,7 @@ Melbourne, Australia | +61 478 916 329 | mehrotra.aditya16@outlook.com | [Linked
 
 ## PROFESSIONAL SUMMARY
 
-Cloud and Backend Engineer with 3+ years building API-driven systems across enterprise environments. Hands-on with AWS serverless (Lambda, API Gateway, DynamoDB, S3, Cognito), Terraform, and Python. Cut production downtime by 20%, hit 95% integration accuracy, and shipped across 130+ client environments.
+Cloud and Backend Engineer with 3+ years building API-driven systems across enterprise environments. Hands-on with AWS serverless (Lambda, API Gateway, DynamoDB, S3, Cognito), Terraform, and Python. Cut production downtime by 20%, hit 95% integration accuracy, and shipped across enterprise client environments.
 
 ---
 
@@ -44,7 +44,7 @@ _Enterprise HR and payroll SaaS platform serving 700+ companies across Southeast
 - Designed and delivered REST API and ETL integrations using Python and R for enterprise clients across banking, automotive, retail, and sustainability sectors
 - Cut integration-related system downtime by 20% and achieved 95% integration accuracy through rigorous API testing and systematic debugging
 - Automated payroll and HR data pipelines across Singapore, Malaysia, Philippines, and Indonesia, replacing manual processes with scheduled REST API connectors
-- Delivered end-to-end implementations for 130+ clients, cutting timelines from 90 to 45 days through reusable templates and automated configuration
+- Delivered end-to-end implementations for enterprise clients, cutting timelines from 90 to 45 days through reusable templates and automated configuration
 
 ---
 

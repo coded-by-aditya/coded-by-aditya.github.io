@@ -127,7 +127,7 @@ const coverLetter = [
   blank(200),
   p("On the troubleshooting side, I'm currently at CFive AI leading their migration onto AWS, after spending my first months there diagnosing production failures across Twilio and VAPI integrations. Tracking down accent-related misroutes, IVR logic errors, and CRM sync failures across live client environments is something I've had a lot of recent practice with. I use AI tools like Claude Code and prompt engineering as a normal part of that work, which I think is worth mentioning given the team's focus on modern engineering practices."),
   blank(200),
-  p("The Python and API work goes back three and a half years at Darwinbox, an enterprise HR SaaS platform across Southeast Asia. I built REST API integrations and ETL pipelines for clients in banking, retail, and manufacturing, cut integration downtime by 20%, and maintained 95% accuracy across 130+ client environments."),
+  p("The Python and API work goes back three and a half years at Darwinbox, an enterprise HR SaaS platform across Southeast Asia. I built REST API integrations and ETL pipelines for clients in banking, retail, and manufacturing, cut integration downtime by 20%, and maintained 95% accuracy across enterprise client environments."),
   blank(200),
   p("One practical note: I'm currently applying for my 485 post-study visa, which gives three years of full working rights with no sponsorship required. My last semester has ended so I can start full time immediately."),
   blank(200),
@@ -157,7 +157,7 @@ const resume = [
   }),
 
   sectionHeader("PROFESSIONAL SUMMARY"),
-  plain("Backend and integration engineer with 3+ years building API-driven systems and working directly with enterprise clients. Uses AI tools like Claude Code and prompt engineering as a normal part of day-to-day work. Strong in Python, AWS serverless, and Terraform. Cut production downtime 20%, held 95% integration accuracy, and delivered across 130+ client environments.", { before: 50, after: 0 }),
+  plain("Backend and integration engineer with 3+ years building API-driven systems and working directly with enterprise clients. Uses AI tools like Claude Code and prompt engineering as a normal part of day-to-day work. Strong in Python, AWS serverless, and Terraform. Cut production downtime 20%, held 95% integration accuracy, and delivered across enterprise client environments.", { before: 50, after: 0 }),
 
   sectionHeader("CORE SKILLS"),
   plain("Languages & Engineering:  Python  |  JavaScript  |  SQL  |  REST API design  |  OAuth 2.0 / SSO", { before: 50, after: 0 }),
@@ -183,7 +183,7 @@ const resume = [
   bullet("Designed and delivered REST API and ETL integrations using Python and R for enterprise clients across banking, automotive, retail, and sustainability sectors"),
   bullet("Cut integration-related system downtime by 20% and achieved 95% integration accuracy through rigorous API testing and systematic debugging"),
   bullet("Built payroll and HR data pipelines across Singapore, Malaysia, Philippines, and Indonesia, replacing manual processes with scheduled REST API connectors"),
-  bullet("Delivered end-to-end implementations for 130+ clients, cutting timelines from 90 to 45 days through reusable templates and automated configuration"),
+  bullet("Delivered end-to-end implementations for enterprise clients, cutting timelines from 90 to 45 days through reusable templates and automated configuration"),
   bullet("Led technical enablement workshops for client engineering teams, increasing platform adoption by 75% and reducing tier-1 support volume"),
 
   sectionHeader("PROJECTS"),

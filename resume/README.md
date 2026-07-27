@@ -33,3 +33,4 @@ So a resume change means three files: the `.md`, the `.js` builder, and the `.ht
 | `deloitte-fde/` | Deloitte Forward-Deployed Engineer (Req 41226) — resume + cover letter |
 | `deloitte-cloud/` | Deloitte Cloud Engineer (Req 41166) — application doc |
 | `opus-fde/` | Opus Recruitment FDE — unnamed Melbourne AI startup |
+| `retail-technical-ba/` | Technical Business Analyst, Data & AI — unnamed major Australian retailer via Iterate (Kyla) — resume + cover letter + email |

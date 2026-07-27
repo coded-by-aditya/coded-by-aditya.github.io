@@ -27,14 +27,6 @@ function link(url, label) {
   });
 }
 
-function contactLine(text) {
-  return new Paragraph({
-    alignment: AlignmentType.CENTER,
-    spacing: { before: 0, after: 0 },
-    children: [new TextRun({ text, font: FONT, size: SMALL_SIZE })]
-  });
-}
-
 function sectionHeader(text) {
   return new Paragraph({
     spacing: { before: 140, after: 50 },
@@ -150,57 +142,55 @@ const doc = new Document({
 
       sectionHeader("PROFESSIONAL SUMMARY"),
       plain(
-        "Backend and integration engineer with 3+ years building API-driven systems and working directly with enterprise clients. Uses AI tools like Claude Code and prompt engineering as a normal part of day-to-day work. Strong in Python, AWS serverless, and Terraform. Cut production downtime 20%, held 95% integration accuracy, and delivered across enterprise client environments.",
+        "Integration and data engineer with 3+ years working between business stakeholders and technical delivery teams. Led requirements discovery, data mapping and end-to-end delivery for enterprise clients across banking, retail and manufacturing. Practical SQL, ETL and Power BI, backed by hands-on engineering across AWS and API integration. Full working rights in Australia on a 485 post-study visa, no sponsorship required.",
         { before: 50, after: 0 }
       ),
 
       sectionHeader("CORE SKILLS"),
-      plain("Languages & Engineering:  Python  |  JavaScript  |  SQL  |  REST API design  |  OAuth 2.0 / SSO", { before: 50, after: 0 }),
-      plain("AI & LLM Tooling:  Claude Code  |  Prompt Engineering  |  LLM integration  |  AI telephony (Twilio, VAPI)"),
-      plain("Cloud & Data:  AWS (Lambda, API Gateway, DynamoDB, S3, Cognito, IAM, SNS)  |  ETL & data pipelines  |  PostgreSQL / RDS  |  Serverless"),
-      plain("IaC & DevOps:  Terraform  |  GitHub Actions CI/CD  |  OIDC  |  Docker  |  Git / GitHub"),
+      plain("Analysis & Delivery:  Requirements elicitation  |  Discovery & stakeholder workshops  |  Data mapping & business rules  |  Data flow documentation  |  Agile delivery  |  Jira / Confluence", { before: 50, after: 0 }),
+      plain("Data & Reporting:  SQL  |  Power BI  |  ETL & data pipelines  |  PostgreSQL  |  DynamoDB  |  Data validation & quality checks"),
+      plain("Technical:  Python  |  REST API design  |  OAuth 2.0 / SSO  |  AWS (Lambda, API Gateway, S3, IAM)  |  Terraform  |  Postman  |  Git / GitHub"),
 
       sectionHeader("PROFESSIONAL EXPERIENCE"),
 
-      ...jobHeader("CFive AI", "Melbourne, Australia", "Technical Engineer (Contract)", "Mar 2026 – Present"),
+      ...jobHeader("CFive AI", "Melbourne, Australia", "Cloud Integration Engineer", "Mar 2026 – Present"),
       companyBlurb("AI telephony startup building an intelligent voice receptionist platform for SMBs, integrating Twilio, VAPI, and CRM APIs."),
-      bullet("Leading the migration of CFive's platform to AWS, scoping the target cloud architecture and moving core services off the existing system"),
-      bullet("Worked closely with a small team on an early-stage product, diagnosing and fixing production failures in an AI telephony system (Twilio, VAPI, CRM APIs) across 24 live client environments"),
-      bullet("Wrote and tuned the prompts behind an AI voice receptionist, improving response accuracy and cutting down mishandled calls across client deployments"),
+      bullet("Leading the migration of CFive's platform to AWS, scoping the target architecture and mapping how data moves between telephony, CRM, and the core application"),
+      bullet("Gathered requirements from client-facing staff and turned them into call-handling workflows covering after-hours cover, missed-call capture, and escalation"),
+      bullet("Diagnosed and resolved production failures across Twilio, VAPI, and CRM integrations in live client environments"),
 
       ...jobHeader("MOSAIC (Monash Students for AI with Communities)", "Melbourne, Australia", "Cloud Engineer (Volunteer)", "Apr 2025 – Present"),
       companyBlurb("Student-run organisation at Monash University building AI-powered tools for community impact."),
-      bullet("Deployed a serverless chat API using AWS API Gateway, Lambda, and DynamoDB (with TTL and GSI), provisioned end-to-end via CloudFormation with scoped IAM roles"),
-      bullet("Created an interactive Mapbox GL map with real-time GeoJSON injection, parsing CSV data into country-level markers with hover and click interaction"),
+      bullet("Deployed a serverless chat API using AWS API Gateway, Lambda, and DynamoDB (TTL and GSI), provisioned via CloudFormation with scoped IAM roles"),
+      bullet("Built an interactive Mapbox GL map, parsing CSV data into country-level markers with hover and click interaction"),
 
       ...jobHeader("Darwinbox", "Jakarta, Indonesia", "Senior Integration Engineer / Integration Engineer", "Feb 2021 – Jul 2024"),
-      companyBlurb("Enterprise HR and payroll SaaS platform serving 700+ companies across Southeast Asia, with deep integrations across banking, retail, and manufacturing sectors."),
-      bullet("Designed and delivered REST API and ETL integrations using Python and R for enterprise clients across banking, automotive, retail, and sustainability sectors"),
-      bullet("Cut integration-related system downtime by 20% and achieved 95% integration accuracy through rigorous API testing and systematic debugging"),
-      bullet("Built payroll and HR data pipelines across Singapore, Malaysia, Philippines, and Indonesia, replacing manual processes with scheduled REST API connectors"),
-      bullet("Delivered end-to-end implementations for enterprise clients, cutting timelines from 90 to 45 days through reusable templates and automated configuration"),
-      bullet("Led technical enablement workshops for client engineering teams, increasing platform adoption by 75% and reducing tier-1 support volume"),
+      companyBlurb("Enterprise HR and payroll SaaS platform serving 700+ companies across Southeast Asia, with deep integrations into banking, retail, and manufacturing clients."),
+      bullet("Ran discovery and requirements sessions with client HR, payroll, and IT teams, producing the field-level data mappings, business rules, and data flow documentation that engineering built from"),
+      bullet("Delivered end-to-end implementations for enterprise clients, cutting typical delivery from 90 days to 45 through reusable requirement templates and automated configuration"),
+      bullet("Built and automated a Power BI dashboard covering 130+ clients for the Customer Success team, replacing a manual reporting build that took two days with an automated refresh that runs in about 15 minutes"),
+      bullet("Designed and delivered REST API and ETL integrations in Python and R, automating payroll and HR data pipelines across Singapore, Malaysia, the Philippines, and Indonesia"),
+      bullet("Cut integration-related downtime by 20% and held 95% integration accuracy through structured testing, data validation, and systematic debugging"),
+      bullet("Led technical enablement workshops for client engineering and operations teams, lifting platform adoption by 75% and reducing tier-1 support volume"),
 
       sectionHeader("PROJECTS"),
 
-      projectHeader("ShieldWalk – Women’s Safety Navigation App", "Vue 3  |  AWS Lambda (x15)  |  API Gateway  |  PostgreSQL RDS  |  Terraform  |  GitHub Actions  |  Groq / Llama 3.3 70B  |  Capacitor (Android)"),
-      bullet("Designed a self-registering Terraform IaC system using fileset-based auto-discovery, provisioning 15 Lambda functions, API Gateway routes, and CloudWatch log groups via a single for_each block with fail-fast validation at plan time"),
-      bullet("Established a GitOps CI/CD pipeline with OIDC authentication, per-developer ephemeral AWS environments via Terraform workspaces, and automatic teardown on PR merge"),
-      bullet("Developed real-time off-route deviation detection with automatic return-path calculation, turn-by-turn push notifications, and arrival detection that chains into a post-walk reflection flow to adaptively learn user comfort preferences"),
+      projectHeader("ShieldWalk – Women’s Safety Navigation App", "Monash FIT5120  |  Vue 3  |  AWS Lambda (x15)  |  API Gateway  |  PostgreSQL RDS  |  Terraform  |  GitHub Actions"),
+      bullet("Designed a self-registering Terraform IaC system provisioning 15 Lambda functions, API Gateway routes, and CloudWatch log groups from a single configuration block with fail-fast validation at plan time"),
+      bullet("Built real-time off-route deviation detection with turn-by-turn push notifications and arrival detection that chains into a post-walk reflection flow"),
 
       projectHeader("BirdTag – Serverless Media Tagging Platform", "github.com/coded-by-aditya/birdtag-aws  |  AWS Lambda  |  API Gateway  |  DynamoDB  |  S3  |  SNS  |  Cognito"),
-      bullet("Developed a serverless media tagging system with event-driven SNS email alerts, a REST API layer with optimised DynamoDB access patterns, and user authentication via Amazon Cognito"),
       bullet("Designed REST API endpoints (search, update, delete) and optimised DynamoDB access patterns for fast metadata retrieval and updates"),
-      bullet("Stored and served media files via S3 with pre-signed URLs, keeping Lambda functions stateless and file handling out of the API layer"),
+      bullet("Built event-driven SNS email alerts and S3 pre-signed URL delivery, keeping Lambda functions stateless and file handling out of the API layer"),
 
       sectionHeader("EDUCATION"),
-      ...educationEntry("Monash University", "Melbourne, Australia", "Master of Information Technology  |  WAM: 82%", "Expected 2026"),
+      ...educationEntry("Monash University", "Melbourne, Australia", "Master of Information Technology  |  WAM: 82%  |  GPA: 3.68/4", "2026"),
       ...educationEntry("Manipal Institute of Technology", "Manipal, India", "Bachelor of Technology – Information Technology", "2021"),
     ]
   }]
 });
 
-const outPath = path.join(__dirname, "resume_deloitte_fde.docx");
+const outPath = path.join(__dirname, "resume_retail_ba.docx");
 Packer.toBuffer(doc).then(buffer => {
   fs.writeFileSync(outPath, buffer);
   console.log("Done: " + outPath);
