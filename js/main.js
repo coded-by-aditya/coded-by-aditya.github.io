@@ -29,10 +29,10 @@ function initTopbar() {
 
 /* ── Highlight the nav link for the section in view ──── */
 function initScrollSpy() {
-  const links = document.querySelectorAll('.topnav a[href^="#"]');
+  const links = document.querySelectorAll('.topnav a[href^="#"], .mobile-menu a[href^="#"]');
   if (!links.length || !('IntersectionObserver' in window)) return;
-  const sections = Array.from(links)
-    .map(a => document.querySelector(a.getAttribute('href')))
+  const sections = [...new Set(Array.from(links, a => a.getAttribute('href')))]
+    .map(href => document.querySelector(href))
     .filter(Boolean);
 
   const obs = new IntersectionObserver(entries => {
@@ -47,24 +47,31 @@ function initScrollSpy() {
 /* ── Light / dark toggle ─────────────────────────────── */
 function initThemeToggle() {
   const root = document.documentElement;
-  const btn = document.querySelector('.theme-toggle');
-  if (!btn) return;
+  const btns = document.querySelectorAll('.theme-toggle');
+  if (!btns.length) return;
   const current = () => (root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
+  // The top bar has an icon button; the mobile menu has a labelled one.
   const sync = () => {
     const next = current() === 'dark' ? 'light' : 'dark';
-    btn.setAttribute('aria-label', `Switch to ${next} mode`);
-    btn.title = `Switch to ${next} mode`;
+    const label = `${next[0].toUpperCase()}${next.slice(1)} mode`;
+    btns.forEach(btn => {
+      btn.setAttribute('aria-label', `Switch to ${next} mode`);
+      btn.title = `Switch to ${next} mode`;
+      const text = btn.querySelector('.theme-label');
+      if (text) text.textContent = label;
+    });
   };
 
-  btn.addEventListener('click', () => {
+  const toggle = () => {
     const next = current() === 'dark' ? 'light' : 'dark';
     root.classList.add('theme-anim');
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('theme', next); } catch (_) {}
     sync();
     setTimeout(() => root.classList.remove('theme-anim'), 350);
-  });
+  };
+  btns.forEach(btn => btn.addEventListener('click', toggle));
   sync();
 }
 
@@ -116,12 +123,41 @@ function initEmailLinks() {
   });
 }
 
+/* ── Mobile menu ─────────────────────────────────────── */
+function initMobileMenu() {
+  const btn = document.querySelector('.menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const header = document.querySelector('.topbar');
+  if (!btn || !menu || !header) return;
+
+  const setOpen = open => {
+    menu.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  const isOpen = () => !menu.hidden;
+
+  btn.addEventListener('click', () => setOpen(!isOpen()));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('click', e => {
+    // e.target is the menu itself when the dimmed backdrop (its ::after) is tapped
+    if (isOpen() && (!header.contains(e.target) || e.target === menu)) setOpen(false);
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && isOpen()) { setOpen(false); btn.focus(); }
+  });
+  const wide = window.matchMedia('(min-width: 721px)');
+  const onWide = () => { if (wide.matches) setOpen(false); };
+  if (wide.addEventListener) wide.addEventListener('change', onWide);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initTopbar();
   initScrollSpy();
   initThemeToggle();
   initEmailLinks();
+  initMobileMenu();
 
   const yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
