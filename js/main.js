@@ -49,8 +49,7 @@ function initThemeToggle() {
   const root = document.documentElement;
   const btn = document.querySelector('.theme-toggle');
   if (!btn) return;
-  const mq = window.matchMedia('(prefers-color-scheme: dark)');
-  const current = () => root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+  const current = () => (root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
   const sync = () => {
     const next = current() === 'dark' ? 'light' : 'dark';
@@ -66,8 +65,55 @@ function initThemeToggle() {
     sync();
     setTimeout(() => root.classList.remove('theme-anim'), 350);
   });
-  if (mq.addEventListener) mq.addEventListener('change', sync);
   sync();
+}
+
+/* ── Email links: also copy the address ──────────────── */
+// mailto: does nothing for visitors without a mail app set up (common with
+// webmail), so copy the address too and say so.
+function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text).then(() => true, () => legacyCopy(text));
+  }
+  return Promise.resolve(legacyCopy(text));
+}
+
+function legacyCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (_) {}
+  ta.remove();
+  return ok;
+}
+
+function initEmailLinks() {
+  const links = document.querySelectorAll('a[href^="mailto:"]');
+  if (!links.length) return;
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  document.body.appendChild(toast);
+  let timer;
+
+  links.forEach(a => {
+    a.addEventListener('click', () => {
+      const email = a.getAttribute('href').replace(/^mailto:/, '');
+      copyText(email).then(ok => {
+        if (!ok) return;
+        toast.textContent = `Email address copied: ${email}`;
+        toast.classList.add('show');
+        clearTimeout(timer);
+        timer = setTimeout(() => toast.classList.remove('show'), 3200);
+      });
+    });
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -75,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTopbar();
   initScrollSpy();
   initThemeToggle();
+  initEmailLinks();
 
   const yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();

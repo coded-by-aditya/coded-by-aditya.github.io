@@ -25,28 +25,7 @@
   color-scheme: light;
 }
 
-/* Dark tokens: follow the system unless the visitor picked light,
-   or apply when they picked dark. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0d0f12;
-    --card: #14171c;
-    --ink: #eceef1;
-    --ink-2: #b3b9c3;
-    --ink-3: #8a919c;
-    --rule: #252a31;
-    --rule-strong: #eceef1;
-    --accent: #8aa4ff;
-    --accent-hover: #b0c2ff;
-    --on-accent: #0a1030;
-    --green: #5fd394;
-    --band: #15181d;
-    --band-ink: #eceef1;
-    --band-ink-2: #9aa1ac;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 16px 40px -16px rgba(0, 0, 0, .6);
-    color-scheme: dark;
-  }
-}
+/* Dark tokens: only when the visitor picks dark with the toggle. Light is the default. */
 :root[data-theme="dark"] {
   --paper: #0d0f12;
   --card: #14171c;
@@ -159,10 +138,6 @@ p { text-wrap: pretty; }
 .theme-toggle .i-sun { display: none; }
 :root[data-theme="dark"] .theme-toggle .i-sun { display: block; }
 :root[data-theme="dark"] .theme-toggle .i-moon { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle .i-sun { display: block; }
-  :root:not([data-theme="light"]) .theme-toggle .i-moon { display: none; }
-}
 html:not(.js) .theme-toggle { display: none; }
 
 /* Brief colour fade while switching theme */
@@ -371,6 +346,20 @@ html:not(.js) .theme-toggle { display: none; }
 .footer { background: var(--band); color: var(--band-ink-2); border-top: 1px solid color-mix(in srgb, var(--band-ink) 12%, transparent); }
 .footer-inner { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.4rem; padding-bottom: 1.4rem; font: 400 .78rem/1.4 var(--mono); }
 
+/* Copied-email confirmation */
+.toast {
+  position: fixed; left: 50%; bottom: 24px; z-index: 200;
+  max-width: calc(100% - 32px);
+  padding: .7rem 1rem;
+  background: var(--ink); color: var(--paper);
+  border-radius: 6px; box-shadow: var(--shadow);
+  font-size: .9rem; font-weight: 500; text-align: center;
+  opacity: 0; pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
 /* ── Motion ─────────────────────────────────────────── */
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .js .rise { opacity: 0; animation: rise .8s cubic-bezier(.2, .7, .2, 1) forwards; }
@@ -391,6 +380,7 @@ html:not(.js) .theme-toggle { display: none; }
   html { scroll-behavior: auto; }
   .js .rise, .js .reveal { opacity: 1; transform: none; animation: none; transition: none; }
   .dot::after { animation: none; }
+  .toast { transition: none; }
 }
 
 /* ── Responsive ─────────────────────────────────────── */
