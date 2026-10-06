@@ -44,10 +44,37 @@ function initScrollSpy() {
   sections.forEach(s => obs.observe(s));
 }
 
+/* ── Light / dark toggle ─────────────────────────────── */
+function initThemeToggle() {
+  const root = document.documentElement;
+  const btn = document.querySelector('.theme-toggle');
+  if (!btn) return;
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  const current = () => root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+
+  const sync = () => {
+    const next = current() === 'dark' ? 'light' : 'dark';
+    btn.setAttribute('aria-label', `Switch to ${next} mode`);
+    btn.title = `Switch to ${next} mode`;
+  };
+
+  btn.addEventListener('click', () => {
+    const next = current() === 'dark' ? 'light' : 'dark';
+    root.classList.add('theme-anim');
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (_) {}
+    sync();
+    setTimeout(() => root.classList.remove('theme-anim'), 350);
+  });
+  if (mq.addEventListener) mq.addEventListener('change', sync);
+  sync();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initTopbar();
   initScrollSpy();
+  initThemeToggle();
 
   const yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
