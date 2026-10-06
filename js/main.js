@@ -1,78 +1,36 @@
 'use strict';
 
-/* ── JSON syntax highlighter ────────────────────────── */
-function highlightCode(el) {
-  if (!el) return;
-  const raw = el.textContent;
-  // escape first
-  let s = raw
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-
-  // Highlight in order: keys, then string values, numbers, booleans, punctuation
-  s = s
-    // object keys: "key":
-    .replace(/"([^"]+)"(\s*):/g, '<span class="k">"$1"</span>$2:')
-    // string values after colon (or in arrays at line start with indentation)
-    .replace(/:\s*"([^"]*)"/g, (_, v) => `: <span class="s">"${v}"</span>`)
-    // standalone strings in arrays
-    .replace(/^(\s+)"([^"]+)"(,?)$/gm, (_, ws, v, comma) =>
-      `${ws}<span class="s">"${v}"</span>${comma}`)
-    // numbers
-    .replace(/: (-?\d+\.?\d*)/g, (_, v) => `: <span class="n">${v}</span>`)
-    // booleans & null
-    .replace(/: (true|false|null)/g, (_, v) => `: <span class="b">${v}</span>`)
-    // punctuation
-    .replace(/([{}\[\],])/g, '<span class="p">$1</span>');
-
-  el.innerHTML = s;
-}
-
-/* Highlight HTTP request blocks */
-function highlightHTTP(el) {
-  if (!el) return;
-  const raw = el.textContent;
-  let s = raw
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-  s = s
-    // first line: METHOD path HTTP/1.1
-    .replace(/^(GET|POST|PUT|DELETE|PATCH)(\s+)(\S+)(\s+)(HTTP\/[\d\.]+)/m,
-      '<span class="ht">$1</span>$2<span class="s">$3</span>$4<span class="p">$5</span>')
-    // header lines: Key: value
-    .replace(/^([A-Za-z-]+)(:\s*)(.+)$/gm,
-      '<span class="hk">$1</span>$2<span class="hv">$3</span>');
-
-  el.innerHTML = s;
-}
-
-/* ── Copy to clipboard ───────────────────────────────── */
-function initCopyButtons() {
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const pre = btn.closest('.code-block').querySelector('.code-pre');
-      const text = pre ? pre.textContent : '';
-      navigator.clipboard.writeText(text).then(() => {
-        btn.textContent = 'Copied!';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = 'Copy';
-          btn.classList.remove('copied');
-        }, 2000);
-      }).catch(() => {
-        btn.textContent = 'Failed';
-        setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
-      });
+/* ── Scroll reveal ───────────────────────────────────── */
+function initReveal() {
+  window.__reveal = true;
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    document.documentElement.classList.add('no-reveal');
+    return;
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      obs.unobserve(e.target);
     });
-  });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => obs.observe(el));
 }
 
-/* ── Active nav on scroll ────────────────────────────── */
-function initScrollSpy() {
-  const links = document.querySelectorAll('.nav-lnk[href^="#"]');
-  if (!links.length) return;
+/* ── Top bar border once the page scrolls ────────────── */
+function initTopbar() {
+  const bar = document.querySelector('.topbar');
+  if (!bar) return;
+  const update = () => bar.classList.toggle('scrolled', window.scrollY > 8);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
 
+/* ── Highlight the nav link for the section in view ──── */
+function initScrollSpy() {
+  const links = document.querySelectorAll('.topnav a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
   const sections = Array.from(links)
     .map(a => document.querySelector(a.getAttribute('href')))
     .filter(Boolean);
@@ -80,84 +38,17 @@ function initScrollSpy() {
   const obs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      const id = entry.target.id;
-      links.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
-      });
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${entry.target.id}`));
     });
-  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
-
+  }, { rootMargin: '-35% 0px -60% 0px' });
   sections.forEach(s => obs.observe(s));
 }
 
-/* ── Theme toggle ────────────────────────────────────── */
-function initThemeToggle() {
-  const btn      = document.getElementById('theme-toggle');
-  const icon     = document.getElementById('theme-icon');
-  const label    = document.getElementById('theme-label');
-  const mobBtn   = document.getElementById('mob-theme-toggle');
-
-  function syncUI() {
-    const isLight = document.documentElement.classList.contains('light');
-    if (icon)   icon.textContent   = isLight ? '🌙' : '☀️';
-    if (label)  label.textContent  = isLight ? 'Dark mode' : 'Light mode';
-    if (mobBtn) mobBtn.textContent = isLight ? '🌙' : '☀️';
-  }
-
-  syncUI(); // set correct state on load
-
-  function toggle() {
-    const isLight = document.documentElement.classList.toggle('light');
-    try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch(_) {}
-    syncUI();
-  }
-
-  btn    && btn.addEventListener('click', toggle);
-  mobBtn && mobBtn.addEventListener('click', toggle);
-}
-
-/* ── Close sidebar on nav link click (Bootstrap offcanvas) ── */
-function initMobileSidebar() {
-  document.querySelectorAll('.nav-lnk').forEach(a => {
-    a.addEventListener('click', () => {
-      const el = document.getElementById('sidebarNav');
-      if (!el) return;
-      const instance = bootstrap.Offcanvas.getInstance(el);
-      if (instance) instance.hide();
-    });
-  });
-}
-
-/* ── Scroll reveal ───────────────────────────────────── */
-function initScrollReveal() {
-  const els = document.querySelectorAll('.fade-in');
-  if (!els.length) return;
-
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-  els.forEach(el => obs.observe(el));
-}
-
-/* ── Init ────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  // Apply syntax highlighting
-  document.querySelectorAll('code.json-hl').forEach(highlightCode);
-  document.querySelectorAll('code.http-hl').forEach(highlightHTTP);
-
-  initThemeToggle();
-  initCopyButtons();
+  initReveal();
+  initTopbar();
   initScrollSpy();
-  initMobileSidebar();
-  initScrollReveal();
 
-  // Year
   const yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
 });
